@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TrackDocumentsControllerService } from 'src/app/services/track-documents-controller/track-documents-controller.service';
 
 @Component({
   selector: 'app-tracking-list',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrackingListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private trackDocumentsController: TrackDocumentsControllerService) { }
 
   ngOnInit(): void {
   }
 
+  public getDocuments(): void {
+    this.trackDocumentsController.updateTrackDocuments().subscribe(data => console.log(data.data)); 
+  }
 }

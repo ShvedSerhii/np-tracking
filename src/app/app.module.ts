@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { TrackDocumentComponent } from './components/tracking-list/track-document/track-document.component';
 import { AddTrackDocumentComponent } from './components/tracking-list/add-track-document/add-track-document.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { RegistrationComponent } from './components/registration/registration.co
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

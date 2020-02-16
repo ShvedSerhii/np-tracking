@@ -17,8 +17,8 @@ export class ApiService {
 
   public post<TRequestBody, TResponseBody>(options: PostOptions<TRequestBody, TResponseBody>): any {
     return this.httpClient
-      .post<TResponseBody>(options.url, options.body)
-      .subscribe(options.handlers.success, options.handlers.error);
+      .post<TResponseBody>(options.url, options.body);
+      // .subscribe(options.handlers.success, options.handlers.error);
   }
 
   public get<TResponseBody>(options: GetOptions<TResponseBody>): any {
