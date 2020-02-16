@@ -21,6 +21,7 @@ import { RegistrationComponent } from './components/registration/registration.co
     TrackDocumentComponent,
     AddTrackDocumentComponent,
     RegistrationComponent,
+    TrackingListComponent
   ],
   imports: [
     BrowserModule,
