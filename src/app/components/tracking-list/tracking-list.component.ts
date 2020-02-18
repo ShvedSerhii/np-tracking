@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TrackDocumentsControllerService } from 'src/app/services/track-documents-controller/track-documents-controller.service';
+import { TrackDocumentModel } from './track-document/track-document.model';
 
 @Component({
   selector: 'app-tracking-list',
@@ -7,13 +8,13 @@ import { TrackDocumentsControllerService } from 'src/app/services/track-document
   styleUrls: ['./tracking-list.component.scss']
 })
 export class TrackingListComponent implements OnInit {
+  public trackDocuments: Array<TrackDocumentModel>;
 
-  constructor(private trackDocumentsController: TrackDocumentsControllerService) { }
+  constructor(private trackDocumentsController: TrackDocumentsControllerService) { 
+    this.trackDocuments = trackDocumentsController.getTrackDocuments();
+  }
 
   ngOnInit(): void {
   }
 
-  public getDocuments(): void {
-    this.trackDocumentsController.updateTrackDocuments().subscribe(data => console.log(data.data)); 
-  }
 }

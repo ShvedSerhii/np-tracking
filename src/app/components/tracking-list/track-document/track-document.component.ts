@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { TrackDocumentModel } from './track-document.model';
+import { TrackDocumentsControllerService } from 'src/app/services/track-documents-controller/track-documents-controller.service';
 
 @Component({
   selector: 'app-track-document',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrackDocumentComponent implements OnInit {
 
-  constructor() { }
+  @Input() index: number;
+  @Input() document: TrackDocumentModel;
 
-  ngOnInit(): void {
+  constructor(public trackDocumentsController: TrackDocumentsControllerService) { }
+
+  ngOnInit(): void { 
   }
 
 }

@@ -19,6 +19,7 @@ export class TrackDocumentsControllerService {
   constructor(private http: ApiService) {
     if (localStorage.getItem(STORAGE_KEY)) {
       this.trackNumbers = JSON.parse(localStorage.getItem(STORAGE_KEY));
+      this.updateTrackDocuments().subscribe(data => this.trackDocuments = data.data)
     } else {
       this.trackNumbers = [
         {
@@ -38,13 +39,20 @@ export class TrackDocumentsControllerService {
   public addNumber(number: TrackNumberModel): void {
     this.trackNumbers.unshift(number);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(this.trackNumbers));
+    this.updateTrackDocuments().subscribe(data => this.trackDocuments = data.data)
   }
   public deleteNumber(index: number): void {
     this.trackNumbers.splice(index, 1);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(this.trackNumbers));
+    this.updateTrackDocuments().subscribe(data => this.trackDocuments = data.data)
   }
 
-  public updateTrackDocuments(): Observable<any> { 
+  public getTrackDocuments(): Array<TrackDocumentModel> {
+    this.updateTrackDocuments().subscribe(data => this.trackDocuments = data.data)
+    return this.trackDocuments; 
+  }
+
+  private updateTrackDocuments(): Observable<any> { 
     return this.http.post({
       url: URL,
       body: JSON.stringify({
@@ -53,7 +61,7 @@ export class TrackDocumentsControllerService {
         "calledMethod": "getStatusDocuments",
         "methodProperties": {
             "Documents": this.trackNumbers
-        }
+        } 
       })
     })
   }

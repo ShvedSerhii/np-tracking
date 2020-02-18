@@ -1,2 +1,5 @@
-<p>tracking-list works!</p>
-<button (click)="getDocuments()">getDocuments</button> 
+
+ 
+<div *ngFor="let document of trackDocuments, let i = index">
+    <app-track-document [document]="document" [index]="i"></app-track-document>
+</div> 

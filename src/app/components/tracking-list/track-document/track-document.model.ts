@@ -1,6 +1,6 @@
 export class TrackDocumentModel {
-    Number: string;
-    Redelivery: string;
+    Number: string; 
+    Redelivery: string; 
     RedeliverySum: string;
     RedeliveryNum: string;
     RedeliveryPayer: string;
