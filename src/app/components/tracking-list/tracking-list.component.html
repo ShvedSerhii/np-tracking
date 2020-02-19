@@ -1,5 +1,5 @@
-
- 
-<div *ngFor="let document of trackDocuments, let i = index">
-    <app-track-document [document]="document" [index]="i"></app-track-document>
-</div> 
+<mat-card class="card">
+    <div *ngFor="let document of trackDocuments, let i = index">
+        <app-track-document (deleteDocument)="deleteDocument($event)" [document]="document" [index]="i"></app-track-document>
+    </div>
+</mat-card>

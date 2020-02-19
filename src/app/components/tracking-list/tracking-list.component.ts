@@ -1,20 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { TrackDocumentsControllerService } from 'src/app/services/track-documents-controller/track-documents-controller.service';
-import { TrackDocumentModel } from './track-document/track-document.model';
+import { Component } from "@angular/core";
+import { TrackDocumentsControllerService } from "src/app/services/track-documents-controller/track-documents-controller.service";
+import { TrackDocumentModel } from "./track-document/track-document.model";
 
 @Component({
-  selector: 'app-tracking-list',
-  templateUrl: './tracking-list.component.html',
-  styleUrls: ['./tracking-list.component.scss']
+  selector: "app-tracking-list",
+  templateUrl: "./tracking-list.component.html",
+  styleUrls: ["./tracking-list.component.scss"]
 })
-export class TrackingListComponent implements OnInit {
+export class TrackingListComponent {
   public trackDocuments: Array<TrackDocumentModel>;
 
-  constructor(private trackDocumentsController: TrackDocumentsControllerService) { 
-    this.trackDocuments = trackDocumentsController.getTrackDocuments();
+  constructor(
+    private trackDocumentsController: TrackDocumentsControllerService
+  ) {
+    trackDocumentsController
+      .updateTrackDocuments()
+      .subscribe(data => (this.trackDocuments = data.data));
   }
 
-  ngOnInit(): void {
+  public deleteDocument(index: number) {
+    this.trackDocumentsController.deleteNumber(index);
+    this.trackDocumentsController
+      .updateTrackDocuments()
+      .subscribe(data => (this.trackDocuments = data.data));
   }
-
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { TrackDocumentModel } from './track-document.model';
 import { TrackDocumentsControllerService } from 'src/app/services/track-documents-controller/track-documents-controller.service';
 
@@ -7,14 +7,15 @@ import { TrackDocumentsControllerService } from 'src/app/services/track-document
   templateUrl: './track-document.component.html',
   styleUrls: ['./track-document.component.scss']
 })
-export class TrackDocumentComponent implements OnInit {
+export class TrackDocumentComponent {
 
   @Input() index: number;
   @Input() document: TrackDocumentModel;
 
   constructor(public trackDocumentsController: TrackDocumentsControllerService) { }
 
-  ngOnInit(): void { 
+  @Output() deleteDocument = new EventEmitter<number>();
+  deleteDoc(index: number) {
+    this.deleteDocument.emit(index); 
   }
-
 }
