@@ -31,6 +31,7 @@ export class TrackDocumentsControllerService {
   public addNumber(number: TrackNumberModel): void {
     this.trackNumbers.unshift(number);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(this.trackNumbers));
+    this.updateTrackDocuments();
   }
   public deleteNumber(index: number): void {
     this.trackNumbers.splice(index, 1);
