@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { TrackDocumentsControllerService } from "src/app/services/track-documents-controller/track-documents-controller.service";
 import { TrackDocumentModel } from "./track-document/track-document.model";
+import { TrackNumberModel } from './track-number.model';
 
 @Component({
   selector: "app-tracking-list",
@@ -23,5 +24,14 @@ export class TrackingListComponent {
     this.trackDocumentsController
       .updateTrackDocuments()
       .subscribe(data => (this.trackDocuments = data.data));
+  }
+
+  public addNumber(num: string) {
+    const number = new TrackNumberModel();
+    number.DocumentNumber = num;
+    this.trackDocumentsController.addNumber(number);
+    this.trackDocumentsController
+      .updateTrackDocuments()
+      .subscribe(data => (this.trackDocuments = data.data)); 
   }
 }

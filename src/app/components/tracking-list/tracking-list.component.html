@@ -1,5 +1,5 @@
 <mat-card class="card">
-    <app-add-track-document></app-add-track-document>
+    <p><input #box placeholder="Enter track number"><button (click)="addNumber(box.value)">Add</button></p> 
     <div *ngFor="let document of trackDocuments, let i = index">
         <app-track-document (deleteDocument)="deleteDocument($event)" [document]="document" [index]="i"></app-track-document>
     </div>
