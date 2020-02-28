@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "np-tracking": {
@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "np-tracking"
+    }
+  },
+  "defaultProject": "np-tracking",
+  "cli": {
+    "analytics": "cc34983f-9f66-4be0-9e94-f69f8b2065ee"
+  }
 }
