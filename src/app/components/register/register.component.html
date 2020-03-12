@@ -1,0 +1,24 @@
+<div class="wrapper">
+    <div class="login-container">
+      <h1>Registration</h1>
+      <form *ngIf="!startSpinner" class="login-form" [formGroup]="form.formGroup" (ngSubmit)="onSubmit(form.formGroup)">
+        <mat-form-field>
+          <input matInput placeholder="Email" formControlName="email">
+          <mat-error *ngIf="form.model.email">
+            Please enter a valid email address
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="password" matInput placeholder="Password" formControlName="password">
+          <mat-error *ngIf="form.model.password">
+            A password can include any combination of letters and numbers. Min 6 characters.
+          </mat-error>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="primary" [disabled]="form.formGroup.invalid">Registration</button>
+          <a routerLink="/login" class="cancel">Cancel</a>
+        </div>
+      </form>
+      <mat-spinner *ngIf="startSpinner" class="login-form"></mat-spinner>
+    </div>
+  </div>

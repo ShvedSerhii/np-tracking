@@ -1,0 +1,24 @@
+.wrapper {
+    min-height: 75vh;
+  }
+  
+  .login-container {
+    width: 400px;
+    margin: auto;
+  
+    .login-form {
+      flex-direction: column;
+      display: flex;
+    }
+  }
+  
+  .cancel {
+    margin-left: 18px;
+    text-decoration: none;
+    color: #3f51b5;
+    font-size: 14px;
+  }
+  
+  h1 {
+    color: #3f51b5;
+  }
