@@ -22,6 +22,8 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { DocumentsListComponent } from './components/documents-list/documents-list.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { DocumentsListComponent } from './components/documents-list/documents-li
     MatProgressSpinnerModule,
     ReactiveFormsModule,
     FormsModule,
+    MatGridListModule,
     StoreModule.forRoot(appReducers, {}),
     EffectsModule.forRoot([AuthEffects])
   ],

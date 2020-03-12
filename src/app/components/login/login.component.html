@@ -1,7 +1,7 @@
 
-<div class="wrapper">
+<mat-card class="wrapper">
     <div class="login-container">
-      <h1>Login</h1>
+      <mat-card-title>Login</mat-card-title>
       <form *ngIf="!startSpinner" form class="login-form" [formGroup]="form.formGroup"
         (ngSubmit)="onSubmit(form.formGroup)">
         <mat-form-field>
@@ -25,4 +25,4 @@
       </form>
       <mat-spinner *ngIf="startSpinner" class="login-form"></mat-spinner>
     </div>
-  </div>
+  </mat-card>
