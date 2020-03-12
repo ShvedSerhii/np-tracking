@@ -1,5 +1,5 @@
 import { CookiesService } from 'src/app/services/cookies/cookies.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { Observable } from 'rxjs';
@@ -16,11 +16,21 @@ export class AuthService {
 
   logIn(payload): Observable<any> {
     const url = `${this.BASE_URL}/api/user/login`;
-    return this.http.post<User>(url, JSON.stringify(payload));
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'text/plain'
+      })
+    };
+    return this.http.post<User>(url, payload, httpOptions);
   }
 
   signUp(payload): Observable<User> {
     const url = `${this.BASE_URL}/api/user/new`;
-    return this.http.post<User>(url, JSON.stringify(payload));
-  }
-}
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'text/plain'
+      })
+    };
+    return this.http.post<User>(url, payload, httpOptions);  
+  } 
+} 

@@ -15,29 +15,39 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from './services/auth/auth.service';
+import { AuthEffects } from './store/effects/auth.effects';
+import { appReducers } from './store/reducers/app.redusers';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { DocumentsListComponent } from './components/documents-list/documents-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    NotFoundComponent,
+    DocumentsListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    CookieService,
     MatButtonModule,
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot(appReducers, {}),
+    EffectsModule.forRoot([AuthEffects])
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [CookieService, AuthService],
+  bootstrap: [AppComponent]  
 })
-export class AppModule { }
+export class AppModule { } 
