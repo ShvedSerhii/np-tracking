@@ -4,7 +4,7 @@
 <mat-card-content>{{document.CitySender}} - {{document.CityRecipient}}</mat-card-content>
     <mat-card-actions class="menu-card">
         <div>
-            <button mat-button>DELETE</button>
+            <button mat-button (click)="deleteDocument()">DELETE</button> 
         </div>
     </mat-card-actions> 
-</mat-card>
+</mat-card> 

@@ -47,7 +47,7 @@ export class DocumentService {
   }
 
   deleteDocument(payload: DocumentModel): Observable<any> {
-    const url = `${this.BASE_URL}/api/documents/${payload.ID}`;
+    const url = `${this.BASE_URL}/api/documents/${payload}`;
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${this.cookie.getCookie('token')}`
