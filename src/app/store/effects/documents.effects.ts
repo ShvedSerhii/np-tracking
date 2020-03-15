@@ -38,7 +38,7 @@ export class DocumentsEffects {
     ofType(DocumentsActionTypes.GET_STATUS_DOCUMENT),
     map((action: GetStatusDocument) => action),
     switchMap(data => {
-      return this.documentServices.getStatusDocuments(data.payload).pipe(
+      return this.documentServices.getStatusDocuments(data.payload.data).pipe(
         map(data => {
           return new SetDocuments(data);
         }) 

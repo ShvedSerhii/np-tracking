@@ -20,11 +20,7 @@ export class DocumentService {
         'Content-Type': 'application/json'
       })
     };
-    const data = {
-      number: payload.DocumentNumber,
-      phone: payload.Phone
-    };
-    return this.http.post(url, JSON.stringify(data), httpOptions);
+    return this.http.post<any>(url, JSON.stringify(payload), httpOptions);
   }
   
   getDocuments(): Observable<any> {
@@ -34,7 +30,7 @@ export class DocumentService {
         'Authorization': `Bearer ${this.cookie.getCookie('token')}`
       })
     };
-    return this.http.get(url, httpOptions);
+    return this.http.get<any>(url, httpOptions);
   }
 
   getStatusDocuments(payload: DocumentModel[]): Observable<any> {
@@ -47,7 +43,7 @@ export class DocumentService {
           "Documents": payload
       }
   }
-    return this.http.post(url, JSON.stringify(data));
+    return this.http.post<any>(url, JSON.stringify(data));
   }
 
   deleteDocument(payload: DocumentModel): Observable<any> {
@@ -74,6 +70,6 @@ export class DocumentService {
       number: payload.DocumentNumber,
       phone: payload.Phone
     };
-    return this.http.put(url, JSON.stringify(data), httpOptions); 
+    return this.http.put<any>(url, JSON.stringify(data), httpOptions); 
   }
 }
