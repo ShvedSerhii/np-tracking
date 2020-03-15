@@ -24,7 +24,7 @@ export class DocumentService {
       number: payload.DocumentNumber,
       phone: payload.Phone
     };
-    return this.http.post(url, data, httpOptions);
+    return this.http.post(url, JSON.stringify(data), httpOptions);
   }
   
   getDocuments(): Observable<any> {
@@ -47,7 +47,7 @@ export class DocumentService {
           "Documents": payload
       }
   }
-    return this.http.post(url, data);
+    return this.http.post(url, JSON.stringify(data));
   }
 
   deleteDocument(payload: DocumentModel): Observable<any> {
@@ -74,6 +74,6 @@ export class DocumentService {
       number: payload.DocumentNumber,
       phone: payload.Phone
     };
-    return this.http.put(url, data, httpOptions);
+    return this.http.put(url, JSON.stringify(data), httpOptions); 
   }
 }
