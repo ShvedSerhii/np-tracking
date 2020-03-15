@@ -17,7 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth/auth.service';
 import { AuthEffects } from './store/effects/auth.effects';
-import { appReducers } from './store/reducers/app.redusers';
+import { appReducers } from './store/reducers/app.reducers';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { NotFoundComponent } from './components/not-found/not-found.component';
