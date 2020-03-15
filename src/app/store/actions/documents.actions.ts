@@ -4,7 +4,6 @@ export enum DocumentsActionTypes {
   SET_DOCUMENTS = '[document] SET_DOCUMENTS',
   GET_DOCUMENTS = '[document] GET_DOCUMENTS',
   ADD_DOCUMENT = '[document] ADD_DOCUMENT',
-  UPDATE_DOCUMENT = '[document] UPDATE_DOCUMENT',
   DELETE_DOCUMENT = '[document] DELETE_DOCUMENT',
   GET_STATUS_DOCUMENT = '[document] GET_STATUS_DOCUMENT',
 }
@@ -23,11 +22,6 @@ export class AddDocument implements Action {
   constructor(public payload: any) {}
 }
 
-export class UpdateDocument implements Action {
-  readonly type = DocumentsActionTypes.UPDATE_DOCUMENT;
-  constructor(public payload: any) {}
-}
-
 export class DeleteDocument implements Action {
   readonly type = DocumentsActionTypes.DELETE_DOCUMENT;
   constructor(public payload: any) {}
@@ -42,7 +36,6 @@ export type AllDocumentsActions =
   | SetDocuments
   | GetDocuments
   | AddDocument
-  | UpdateDocument
   | DeleteDocument
   | GetStatusDocument;
   

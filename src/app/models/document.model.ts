@@ -1,8 +1,6 @@
 export class DocumentModel {
   "DocumentNumber": string;
   "Phone"?: string;
-  "ID"?: string;
-  "Description"?: string;   
 }
 
 export class DocumentStatus {

@@ -8,7 +8,6 @@ import {
   SetDocuments,
   AddDocument,
   DeleteDocument,
-  UpdateDocument,
   GetStatusDocument
 } from "../actions/documents.actions";
 import { map, switchMap } from "rxjs/operators";
@@ -68,19 +67,6 @@ export class DocumentsEffects {
         map(() => {
           return new GetDocuments(); 
         })
-      );
-    })
-  );
-
-  @Effect()
-  UpdateTodo: Observable<any> = this.actions.pipe(
-    ofType(DocumentsActionTypes.UPDATE_DOCUMENT),
-    map((action: UpdateDocument) => action.payload),
-    switchMap(payload => {
-      return this.documentServices.updateDocument(payload).pipe(
-        map(() => {
-          return new GetDocuments();
-        }) 
       );
     })
   );

@@ -29,9 +29,6 @@ import { DocumentModel } from 'src/app/models/document.model';
         }),
         phone: new FormControl(this.model.Phone, {
           updateOn: 'change'
-        }),
-        description: new FormControl(this.model.Description, {
-          updateOn: 'change'
         })
       });
   
@@ -39,7 +36,6 @@ import { DocumentModel } from 'src/app/models/document.model';
       this.formGroup.valueChanges.subscribe((data: any) => {
         this.model.DocumentNumber = data.number;
         this.model.Phone = data.phone;
-        this.model.Description = data.description;
       });
     }
   }

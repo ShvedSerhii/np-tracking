@@ -55,21 +55,4 @@ export class DocumentService {
     };
     return this.http.delete(url, httpOptions);
   }
-
-  updateDocument(payload: DocumentModel): Observable<any> {
-    const url = `${this.BASE_URL}/api/documents`;
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${this.cookie.getCookie('token')}`,
-        'Content-Type': 'application/json'
-      })
-    };
-    const data = {
-      ID: payload.ID,
-      description: payload.Description,
-      number: payload.DocumentNumber,
-      phone: payload.Phone
-    };
-    return this.http.put<any>(url, JSON.stringify(data), httpOptions); 
-  }
 }
