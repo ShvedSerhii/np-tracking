@@ -23,6 +23,11 @@ import { EffectsModule } from '@ngrx/effects';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { DocumentsListComponent } from './components/documents-list/documents-list.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { NewDocumentComponent } from './components/documents-list/new-document/new-document.component';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { DocumentComponent } from './components/documents-list/document/document.component';
+import { DocumentsEffects } from './store/effects/documents.effects';
+
 
 
 @NgModule({
@@ -32,7 +37,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
     LoginComponent,
     RegisterComponent,
     NotFoundComponent,
-    DocumentsListComponent
+    DocumentsListComponent,
+    DocumentComponent,
+    NewDocumentComponent
   ],
   imports: [
     BrowserModule,
@@ -48,9 +55,13 @@ import { MatGridListModule } from '@angular/material/grid-list';
     FormsModule,
     MatGridListModule,
     StoreModule.forRoot(appReducers, {}),
-    EffectsModule.forRoot([AuthEffects])
+    EffectsModule.forRoot([AuthEffects, DocumentsEffects]), 
+    MatDialogModule,
   ],
-  providers: [CookieService, AuthService],
-  bootstrap: [AppComponent]  
+  providers: [CookieService, AuthService, {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
+  bootstrap: [AppComponent],
+  entryComponents: [
+    NewDocumentComponent
+  ], 
 })
 export class AppModule { } 

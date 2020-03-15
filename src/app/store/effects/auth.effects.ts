@@ -33,8 +33,8 @@ export class AuthEffects {
     map((action: LogIn) => action.payload),
     switchMap(payload => {
       return this.authService.logIn(payload).pipe(
-        map(user => {
-          return new LogInSuccess({ token: user.token, email: payload.email });
+        map(data => {
+          return new LogInSuccess({ token: data.account.token, email: payload.email });
         }),
         catchError(error => {
           return of(new LogInFailure({ error }));
@@ -46,8 +46,9 @@ export class AuthEffects {
   @Effect({ dispatch: false })
   LogInSuccess: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.LOGIN_SUCCESS),
-    tap(user => {
-      this.cookie.setCookie('token', user.payload.token);
+    tap( data => {
+      console.log(data.payload.token); 
+      this.cookie.setCookie('token', data.payload.token);
       this.router.navigateByUrl('/');
     })
   );
@@ -63,8 +64,8 @@ export class AuthEffects {
     map((action: SignUp) => action.payload),
     switchMap(payload => {
       return this.authService.signUp(payload).pipe(
-        map(user => {
-          return new SignUpSuccess({ token: user.token, email: payload.email });
+        map(data => {
+          return new SignUpSuccess({ token: data.account.token, email: payload.email });
         }),
         catchError(error => {
           return of(new SignUpFailure({ error }));
@@ -76,8 +77,8 @@ export class AuthEffects {
   @Effect({ dispatch: false })
   SignUpSuccess: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.SIGNUP_SUCCESS),
-    tap(user => {
-      this.cookie.setCookie('token', user.payload.token);
+    tap(data => {
+      this.cookie.setCookie('token', data.payload.token);
       this.router.navigateByUrl('/');
     })
   );
@@ -90,9 +91,9 @@ export class AuthEffects {
   @Effect({ dispatch: false })
   public LogOut: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.LOGOUT),
-    tap(user => {
+    tap(() => {
       this.cookie.deleteCookie('token');
-      this.router.navigateByUrl('/login');
+      this.router.navigateByUrl('/login'); 
     })
   );
 }

@@ -1,1 +1,6 @@
-<p>documents-list works!</p>
+  <mat-card class="card">
+    <p><button mat-button (click)="openDialog()">Add New Track Number</button></p> 
+    <div *ngFor="let document of documents$ | async">
+        <app-document [document]="document"></app-document>
+    </div>
+</mat-card>

@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>New Tracking Number</h1>
+<div mat-dialog-content>
+  <form class="edit-data-form" [formGroup]="form.formGroup">
+    <mat-form-field>
+      <input matInput placeholder="Number" formControlName="number">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Phone" formControlName="phone">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Description" formControlName="description">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="form.model" cdkFocusInitial [disabled]="form.formGroup.invalid">Submit</button>
+</div>

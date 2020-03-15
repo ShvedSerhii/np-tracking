@@ -8,7 +8,8 @@ import {
   SetDocuments,
   AddDocument,
   DeleteDocument,
-  UpdateDocument
+  UpdateDocument,
+  GetStatusDocument
 } from "../actions/documents.actions";
 import { map, switchMap } from "rxjs/operators";
 
@@ -26,8 +27,21 @@ export class DocumentsEffects {
     switchMap(() => {
       return this.documentServices.getDocuments().pipe(
         map(data => {
-          return new SetDocuments(data);
+          return new GetStatusDocument(data);
         })
+      );
+    })
+  );
+
+  @Effect()
+  GetStatusDocuments: Observable<any> = this.actions.pipe(
+    ofType(DocumentsActionTypes.GET_STATUS_DOCUMENT),
+    map((action: GetStatusDocument) => action),
+    switchMap(data => {
+      return this.documentServices.getStatusDocuments(data.payload).pipe(
+        map(data => {
+          return new SetDocuments(data);
+        }) 
       );
     })
   );
@@ -52,7 +66,7 @@ export class DocumentsEffects {
     switchMap(payload => {
       return this.documentServices.deleteDocument(payload).pipe(
         map(() => {
-          return new GetDocuments();
+          return new GetDocuments(); 
         })
       );
     })
@@ -66,7 +80,7 @@ export class DocumentsEffects {
       return this.documentServices.updateDocument(payload).pipe(
         map(() => {
           return new GetDocuments();
-        })
+        }) 
       );
     })
   );
