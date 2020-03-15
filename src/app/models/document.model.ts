@@ -1,4 +1,11 @@
-export class Document {
+export class DocumentModel {
+  "DocumentNumber": string;
+  "Phone"?: string;
+  "ID"?: string;
+  "Description"?: string;   
+}
+
+export class DocumentStatus {
   "Number": string;
   "Redelivery"?: string;
   "RedeliverySum"?: string;
