@@ -34,7 +34,7 @@ export class AuthEffects {
     switchMap(payload => {
       return this.authService.logIn(payload).pipe(
         map(data => {
-          return new LogInSuccess({ token: data.account.token, email: payload.email });
+          return new LogInSuccess(data);
         }),
         catchError(error => {
           return of(new LogInFailure({ error }));
@@ -47,9 +47,12 @@ export class AuthEffects {
   LogInSuccess: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.LOGIN_SUCCESS),
     tap( data => {
-      console.log(data.payload.token); 
-      this.cookie.setCookie('token', data.payload.token);
-      this.router.navigateByUrl('/');
+      if(!data.payload.account) {
+        alert(data.payload.message);
+      } else {
+        this.cookie.setCookie('token', data.payload.account.token);
+        this.router.navigateByUrl('/');
+      } 
     })
   );
 
@@ -65,7 +68,7 @@ export class AuthEffects {
     switchMap(payload => {
       return this.authService.signUp(payload).pipe(
         map(data => {
-          return new SignUpSuccess({ token: data.account.token, email: payload.email });
+          return new SignUpSuccess(data);
         }),
         catchError(error => {
           return of(new SignUpFailure({ error }));
@@ -78,8 +81,12 @@ export class AuthEffects {
   SignUpSuccess: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.SIGNUP_SUCCESS),
     tap(data => {
-      this.cookie.setCookie('token', data.payload.token);
-      this.router.navigateByUrl('/');
+      if(!data.payload.account) {
+        alert(data.payload.message);
+      } else {
+        this.cookie.setCookie('token', data.payload.account.token);
+        this.router.navigateByUrl('/');
+      } 
     })
   );
 

@@ -27,7 +27,6 @@ export class DocumentsListComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
       this.store.dispatch(new DocumentsActions.AddDocument(result));
     });
   }

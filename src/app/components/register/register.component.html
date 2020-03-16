@@ -1,7 +1,7 @@
 <mat-card class="wrapper">
     <div class="login-container">
       <mat-card-title>Registration</mat-card-title>
-      <form *ngIf="!startSpinner" class="login-form" [formGroup]="form.formGroup" (ngSubmit)="onSubmit(form.formGroup)">
+      <form class="login-form" [formGroup]="form.formGroup" (ngSubmit)="onSubmit(form.formGroup)">
         <mat-form-field>
           <input matInput placeholder="Email" formControlName="email">
           <mat-error *ngIf="form.model.email">
@@ -19,6 +19,6 @@
           <a routerLink="/login" class="cancel">Cancel</a>
         </div>
       </form>
-      <mat-spinner *ngIf="startSpinner" class="login-form"></mat-spinner>
-    </div>
+      <!-- <mat-spinner *ngIf="startSpinner" class="login-form"></mat-spinner> -->
+    </div> 
   </mat-card>
