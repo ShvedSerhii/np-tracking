@@ -20,7 +20,10 @@ import { DocumentModel } from 'src/app/models/document.model';
     public createForm() {
       this.formGroup = this.formBuilder.group({
         number: new FormControl(this.model.DocumentNumber, {
-          validators: [Validators.required],
+          validators: [
+            Validators.required,
+            Validators.pattern(/^(1|2|5)[0-9]{13}$/) 
+          ],
           updateOn: 'change'
         }),
         phone: new FormControl(this.model.Phone, {
