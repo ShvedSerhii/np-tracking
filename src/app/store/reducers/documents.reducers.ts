@@ -8,8 +8,9 @@ export function documentsReducer(
     const state = JSON.parse(JSON.stringify(oldState));
     switch (action.type) {
       case DocumentsActionTypes.SET_DOCUMENTS: {
-        state.documents = action.payload.data;
-        return state;
+        state.documents = new Array(...action.payload.data);
+        state.documents.reverse(); 
+        return state; 
       }
       default: {
         return state;
