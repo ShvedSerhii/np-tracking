@@ -58,7 +58,10 @@ export class AuthEffects {
 
   @Effect({ dispatch: false })
   LogInFailure: Observable<any> = this.actions.pipe(
-    ofType(AuthActionTypes.LOGIN_FAILURE)
+    ofType(AuthActionTypes.LOGIN_FAILURE),
+    tap(data => {
+      alert('Unknown error. Check your internet connection.');
+    })
   );
 
   @Effect()
@@ -92,7 +95,10 @@ export class AuthEffects {
 
   @Effect({ dispatch: false })
   SignUpFailure: Observable<any> = this.actions.pipe(
-    ofType(AuthActionTypes.SIGNUP_FAILURE)
+    ofType(AuthActionTypes.SIGNUP_FAILURE),
+    tap(data => {
+      alert('Unknown error. Check your internet connection.');
+    })
   );
 
   @Effect({ dispatch: false })
