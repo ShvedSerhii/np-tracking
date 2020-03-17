@@ -5,6 +5,7 @@ import {
     Validators
   } from '@angular/forms';
   import { User } from '../../models/user.model';
+import { MustMatch } from './must-match.validator';
   
   export default class RegisterForm {
     private formBuilder: FormBuilder;
@@ -30,7 +31,10 @@ import {
             Validators.pattern(/[0-9a-zA-Z]$/)
           ],
           updateOn: 'change'
-        })
+        }),
+        confirmPassword: ['']
+      }, {
+        validator: MustMatch('password', 'confirmPassword')
       });
   
       this.formGroup.valueChanges.subscribe((data: any) => {
