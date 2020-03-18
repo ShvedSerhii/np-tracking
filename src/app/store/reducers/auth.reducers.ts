@@ -11,16 +11,17 @@ export function authReducer(
         ...state,
         isAuthenticated: true,
         user: {
-          token: action.payload.token,
-          email: action.payload.email
+          token: action.payload.account.token,
+          email: action.payload.account.email
         },
         errorMessage: null
       };
     }
     case AuthActionTypes.LOGIN_FAILURE: {
+      const message = action.payload.message ? action.payload.message : 'Unknown error. Check your internet connection.'
       return {
         ...state,
-        errorMessage: 'Incorrect email and/or password.'
+        errorMessage: message
       };
     }
     case AuthActionTypes.SIGNUP_SUCCESS: {
@@ -28,16 +29,17 @@ export function authReducer(
         ...state,
         isAuthenticated: true,
         user: {
-          token: action.payload.token,
-          email: action.payload.email
+          token: action.payload.account.token,
+          email: action.payload.account.email
         },
         errorMessage: null
       };
     }
     case AuthActionTypes.SIGNUP_FAILURE: {
+      const message = action.payload.message ? action.payload.message : 'Unknown error. Check your internet connection.'
       return {
         ...state,
-        errorMessage: 'That email is already in use.'
+        errorMessage: message
       };
     }
     case AuthActionTypes.LOGOUT: {

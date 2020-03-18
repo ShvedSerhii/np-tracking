@@ -1,5 +1,6 @@
 <mat-card class="wrapper">
     <div class="login-container">
+      <p class="errMessage">{{errMessage$|async}}</p>
       <mat-card-title>Registration</mat-card-title>
       <form class="login-form" [formGroup]="form.formGroup" (ngSubmit)="onSubmit(form.formGroup)">
         <mat-form-field>

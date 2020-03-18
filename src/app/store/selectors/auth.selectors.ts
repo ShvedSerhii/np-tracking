@@ -9,3 +9,8 @@ export const isAuthenticated = createSelector(
   selectAuth,
   (state: IAuthState) => state.isAuthenticated
 );
+
+export const errMessage = createSelector(
+  selectAuth,
+  (state: IAuthState) => state.errorMessage
+);
