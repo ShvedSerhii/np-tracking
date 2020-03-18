@@ -34,7 +34,11 @@ export class AuthEffects {
     switchMap(payload => {
       return this.authService.logIn(payload).pipe(
         map(data => {
-          return new LogInSuccess(data);
+          if(data.account) {
+            return new LogInSuccess(data);
+          } else {
+            return new LogInFailure(data);
+          }
         }),
         catchError(error => {
           return of(new LogInFailure({ error }));
@@ -47,12 +51,8 @@ export class AuthEffects {
   LogInSuccess: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.LOGIN_SUCCESS),
     tap( data => {
-      if(!data.payload.account) {
-        alert(data.payload.message);
-      } else {
         this.cookie.setCookie('token', data.payload.account.token);
         this.router.navigateByUrl('/');
-      } 
     })
   );
 
@@ -71,7 +71,11 @@ export class AuthEffects {
     switchMap(payload => {
       return this.authService.signUp(payload).pipe(
         map(data => {
-          return new SignUpSuccess(data);
+          if(data.account) {
+            return new SignUpSuccess(data);
+          } else {
+            return new SignUpFailure(data);
+          }
         }),
         catchError(error => {
           return of(new SignUpFailure({ error }));
@@ -84,12 +88,8 @@ export class AuthEffects {
   SignUpSuccess: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.SIGNUP_SUCCESS),
     tap(data => {
-      if(!data.payload.account) {
-        alert(data.payload.message);
-      } else {
         this.cookie.setCookie('token', data.payload.account.token);
         this.router.navigateByUrl('/');
-      } 
     })
   );
 
