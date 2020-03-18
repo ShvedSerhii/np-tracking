@@ -17,6 +17,7 @@ export class RegisterComponent {
   public model: User;
   public form: RegisterForm;
   public startSpinner = false;
+  public showError = false;
   public errMessage$: Observable<string>;
   public isAuthenticated$: Observable<boolean>; 
   constructor(private router: Router, private store: Store<IAppState>) {
@@ -27,6 +28,7 @@ export class RegisterComponent {
   }
 
   public onSubmit(form): void {
+    this.showError = true;
     this.startSpinner = true;
     this.store.dispatch(new SignUp(form.value));
   }

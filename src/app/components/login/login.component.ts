@@ -19,6 +19,7 @@ export class LoginComponent {
   public startSpinner = false;
   public errMessage$: Observable<string>;
   public isAuthenticated$: Observable<boolean>;
+  public showError = false;
   constructor(private store: Store<IAppState>, private router: Router) {
     this.model = new User();
     this.form = new LoginForm(this.model);
@@ -27,6 +28,7 @@ export class LoginComponent {
   }
 
   public onSubmit(form): void {
+    this.showError = true;
     this.startSpinner = true;
     this.store.dispatch(new LogIn(form.value));
   }
