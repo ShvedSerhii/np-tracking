@@ -23,7 +23,8 @@ export class DocumentsListComponent {
   public openDialog(): void {
     const dialogRef = this.dialog.open(NewDocumentComponent, {
       width: '600px',
-      data: new DocumentModel()
+      data: new DocumentModel(),
+      panelClass: 'mat-dialog-custom'
     });
 
     dialogRef.afterClosed().subscribe(result => {

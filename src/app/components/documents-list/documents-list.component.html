@@ -1,6 +1,7 @@
-  <mat-card class="card">
-    <p><button mat-button (click)="openDialog()">Add New Track Number</button></p> 
+<div class="wrapper">
+    <div class="add"><button mat-raised-button color="primary" (click)="openDialog()">+ Add New Track Number</button></div> 
     <div *ngFor="let document of documents$ | async">
         <app-document [document]="document"></app-document>
     </div>
-</mat-card>
+</div>
+

@@ -1,22 +1,24 @@
-<h1 mat-dialog-title>New Tracking Number</h1>
-<div mat-dialog-content>
-  <form class="edit-data-form" [formGroup]="form.formGroup">
-    <mat-form-field>
-      <input matInput placeholder="Number" formControlName="number" required>
-      <mat-error *ngIf="form.model.DocumentNumber">
-        The number should be 14 digits and start with 5, 2, or 1
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Phone</mat-label>
-      <input matInput formControlName="phone" placeholder="Ex. +380XXXXXXXXX">  
-      <mat-error *ngIf="form.model.Phone">
-        Please enter the correct phone number or leave this field blank
-      </mat-error>
-    </mat-form-field>
-  </form>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="cancel()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="form.model" cdkFocusInitial [disabled]="form.formGroup.invalid">Submit</button>
+<div class="wrapper">
+  <h1 mat-dialog-title>New Tracking Number</h1>
+  <div mat-dialog-content>
+    <form class="edit-data-form" [formGroup]="form.formGroup">
+      <mat-form-field>
+        <input matInput placeholder="Number" formControlName="number" required>
+        <mat-error *ngIf="form.model.DocumentNumber">
+          The number should be 14 digits and start with 5, 2, or 1
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Phone</mat-label>
+        <input matInput formControlName="phone" placeholder="Ex. +380XXXXXXXXX">  
+        <mat-error *ngIf="form.model.Phone">
+          Please enter the correct phone number or leave this field blank
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="cancel()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="form.model" cdkFocusInitial [disabled]="form.formGroup.invalid">Submit</button>
+  </div>
 </div>

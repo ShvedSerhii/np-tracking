@@ -1,26 +1,28 @@
-.wrapper {
-    min-height: 82vh;
-  }
-  
+
   .login-container {
     width: 400px;
     margin: auto;
+    padding: 20px;
   
     .login-form {
       flex-direction: column;
       display: flex;
     }
   }
+
+  mat-card-title {
+    color: whitesmoke;
+  }
   
   .cancel {
     margin-left: 18px;
     text-decoration: none;
-    color: #7b1fa2;
+    color: whitesmoke;
     font-size: 14px;
   }
   
   h1 {
-    color: #7b1fa2;
+    color: whitesmoke;
   }
 
   .errMessage {

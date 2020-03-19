@@ -1,0 +1,14 @@
+.wrapper {
+  display: grid;
+  margin: auto;
+  max-width: 900px;
+  grid-template-columns: 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.add {
+margin: 10px;
+}
