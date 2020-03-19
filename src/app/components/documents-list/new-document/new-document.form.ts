@@ -28,7 +28,7 @@ import { DocumentModel } from 'src/app/models/document.model';
         }),
         phone: new FormControl(this.model.Phone, {
           validators: [
-            Validators.pattern(/^(\+380)[0-9]{9}$/) 
+            Validators.pattern(/^(380)[0-9]{9}$/) 
           ],
           updateOn: 'change'
         })
