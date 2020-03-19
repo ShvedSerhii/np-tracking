@@ -7,6 +7,7 @@ import { Store } from '@ngrx/store';
 import { IAppState } from 'src/app/store/state/app.state';
 import { Observable } from 'rxjs';
 import { errMessage, isAuthenticated } from 'src/app/store/selectors/auth.selectors';
+import { LoaderService } from 'src/app/services/loader/loader.service';
 
 @Component({
   selector: 'app-login',
@@ -16,20 +17,23 @@ import { errMessage, isAuthenticated } from 'src/app/store/selectors/auth.select
 export class LoginComponent {
   public model: User;
   public form: LoginForm;
-  public startSpinner = false;
+  public loading: boolean;
   public errMessage$: Observable<string>;
   public isAuthenticated$: Observable<boolean>;
   public showError = false;
-  constructor(private store: Store<IAppState>, private router: Router) {
+  constructor(private store: Store<IAppState>, private router: Router, private loaderService: LoaderService) {
     this.model = new User();
     this.form = new LoginForm(this.model);
     this.errMessage$ = store.select(errMessage);
     this.isAuthenticated$ = store.select(isAuthenticated);
+    this.loaderService.isLoading.subscribe((v) => {
+      console.log(v);
+      this.loading = v;
+    });
   }
 
   public onSubmit(form): void {
     this.showError = true;
-    this.startSpinner = true;
     this.store.dispatch(new LogIn(form.value));
   }
 }
