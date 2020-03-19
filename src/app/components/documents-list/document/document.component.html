@@ -1,7 +1,9 @@
 <mat-card class="card">
     <mat-card-title>{{document.Number}}</mat-card-title>
     <mat-card-subtitle>{{document.Status}}</mat-card-subtitle>
-<mat-card-content>{{document.CitySender}} - {{document.CityRecipient}}</mat-card-content>
+<mat-card-content>
+    {{document.CitySender}} - {{document.CityRecipient}}
+</mat-card-content>
     <mat-card-actions class="menu-card">
         <div>
             <button mat-button (click)="deleteDocument()">DELETE</button> 
