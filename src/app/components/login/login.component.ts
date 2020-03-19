@@ -27,7 +27,6 @@ export class LoginComponent {
     this.errMessage$ = store.select(errMessage);
     this.isAuthenticated$ = store.select(isAuthenticated);
     this.loaderService.isLoading.subscribe((v) => {
-      console.log(v);
       this.loading = v;
     });
   }
