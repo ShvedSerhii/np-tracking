@@ -13,6 +13,10 @@ export class AuthService {
     return this.cookie.getCookie('token');
   }
 
+  getEmail(): string {
+    return this.cookie.getCookie('email');
+  }
+
   logIn(payload): Observable<any> {
     const url = `${this.BASE_URL}/api/user/login`;
     const httpOptions = {

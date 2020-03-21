@@ -52,16 +52,14 @@ export class AuthEffects {
     ofType(AuthActionTypes.LOGIN_SUCCESS),
     tap( data => {
         this.cookie.setCookie('token', data.payload.account.token);
+        this.cookie.setCookie('email', data.payload.account.email);
         this.router.navigateByUrl('/');
     })
   );
 
   @Effect({ dispatch: false })
   LogInFailure: Observable<any> = this.actions.pipe(
-    ofType(AuthActionTypes.LOGIN_FAILURE),
-    // tap(data => {
-    //   alert('Unknown error. Check your internet connection.');
-    // })
+    ofType(AuthActionTypes.LOGIN_FAILURE)
   );
 
   @Effect()
@@ -89,16 +87,14 @@ export class AuthEffects {
     ofType(AuthActionTypes.SIGNUP_SUCCESS),
     tap(data => {
         this.cookie.setCookie('token', data.payload.account.token);
+        this.cookie.setCookie('email', data.payload.account.email);
         this.router.navigateByUrl('/');
     })
   );
 
   @Effect({ dispatch: false })
   SignUpFailure: Observable<any> = this.actions.pipe(
-    ofType(AuthActionTypes.SIGNUP_FAILURE),
-    // tap(data => {
-    //   alert('Unknown error. Check your internet connection.');
-    // })
+    ofType(AuthActionTypes.SIGNUP_FAILURE)
   );
 
   @Effect({ dispatch: false })
@@ -106,6 +102,7 @@ export class AuthEffects {
     ofType(AuthActionTypes.LOGOUT),
     tap(() => {
       this.cookie.deleteCookie('token');
+      this.cookie.deleteCookie('email');
       this.router.navigateByUrl('/login'); 
     })
   );

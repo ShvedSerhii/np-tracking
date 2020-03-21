@@ -1,6 +1,8 @@
-<div class="wrapper">
+<header class="wrapper">
     <div class="title">
         <h1>NP Tracking</h1>
     </div>
-    <div *ngIf="auth.getToken()" class="logout"><button mat-raised-button color="primary" (click)="logout()">Logout</button></div>
-</div> 
+    <div *ngIf="auth.getToken()" class="logout">
+        <button class="logout" mat-raised-button color="primary" (click)="logout()">Logout, {{auth.getEmail()}}</button>
+    </div>
+</header>
