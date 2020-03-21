@@ -17,7 +17,12 @@
   
   .title {
     justify-content: flex-start;
-  }
+  } 
+
+  .title h1 {
+    margin-top: auto;
+    margin-bottom: auto;
+  } 
   
   .logout {
     justify-content: flex-end;
