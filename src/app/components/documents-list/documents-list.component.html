@@ -3,5 +3,13 @@
     <div *ngFor="let document of documents$ | async">
         <app-document [document]="document"></app-document>
     </div>
+    <div *ngIf="!((documents$|async)[0])" class="empty">
+        <mat-card>
+            <mat-card-content>
+                <h1>You don't have any tracking numbers yet. Don't panic! </h1>
+                <h1>You can add your first tracking number here.</h1>
+            </mat-card-content>
+        </mat-card> 
+    </div>
 </div>
 
