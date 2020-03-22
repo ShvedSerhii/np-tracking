@@ -5,22 +5,23 @@
     <mat-progress-bar mode="determinate" color="accent" [value]="getValueProgress(document.StatusCode)"></mat-progress-bar>
      
     <div *ngIf="!(document.StatusCode=='3')" class="info">
-        <div class="sender">
+        <div>
             <h3>Sender info</h3>
             <p>Sender city - <span class='item'>{{document.CitySender}}</span></p>
             <p>Date created - <span class="item">{{document.DateCreated}}</span></p>
-            <p>Scheduled delivery date - <span class="item">{{document.ScheduledDeliveryDate.split(' ')[0]}}</span></p>
+            <h3>Recipient info</h3>
+            <p>Recipient city - <span class="item">{{document.CityRecipient}}</span></p>
+            <p>Recipient address - <span class="item">{{document.WarehouseRecipient||document.RecipientAddress||'*при введені телефону'}}</span></p>
+            <p>Recipient full name	 - <span class="item">{{document.RecipientFullName||'*при введені телефону'}}</span></p>
+        </div>
+        <div>
+            <h3>Cargo info</h3>
             <p>Weight - <span class="item">{{document.DocumentWeight}} кг</span></p>
             <p>Cargo description - <span class="item">{{document.CargoDescriptionString||'*при введені телефону'}}</span></p>
             <p>Shipping cost - <span class="item">{{document.DocumentCost||'доставка безкоштовна'}} <span *ngIf="document.DocumentCost">грн</span></span></p>
             <p>Redelivery sum - <span class="item">{{document.RedeliverySum||'зворотньої доставки немає'}} <span *ngIf="document.RedeliverySum">грн</span></span></p>
-        </div>
-        <div class="recipient">
-            <p>Recipient city - <span class="item">{{document.CityRecipient}}</span></p>
-            <p>Warehouse recipient - <span class="item">{{document.WarehouseRecipient||'адресна доставка'}}</span></p>
+            <p>Scheduled delivery date - <span class="item">{{document.ScheduledDeliveryDate.split(' ')[0]}}</span></p>
             <p>Date of receipt - <span class="item">{{document.RecipientDateTime||'не отримано'}}</span></p>
-            <p>Recipient full name	 - <span class="item">{{document.RecipientFullName||'*при введені телефону'}}</span></p>
-            <p>Recipient address - <span class="item">{{document.RecipientAddress||'*при введені телефону'}}</span></p>
         </div>
     </div>
 </mat-card-content>

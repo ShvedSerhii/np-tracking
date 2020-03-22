@@ -20,16 +20,17 @@ export class DocumentComponent {
 
   getValueProgress(statusCode: string) {
     switch (+statusCode) {
-      case 1:
       case 2:
       case 3:
+        return 0;
+      case 1:
       case 4:
       case 41:
-        return 0;
+        return 25;
       case 5:
       case 6:
       case 104:
-        return 25;
+        return 50;
       case 7:
       case 8:
       case 101:
