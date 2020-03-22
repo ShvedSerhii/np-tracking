@@ -2,8 +2,11 @@
     <mat-card-title>{{document.Number}}</mat-card-title>
     <mat-card-subtitle>{{document.Status}}</mat-card-subtitle>
 <mat-card-content>
+    <mat-progress-bar mode="determinate" color="accent" [value]="getValueProgress(document.StatusCode)"></mat-progress-bar>
+     
     <div *ngIf="!(document.StatusCode=='3')" class="info">
         <div class="sender">
+            <h3>Sender info</h3>
             <p>Sender city - <span class='item'>{{document.CitySender}}</span></p>
             <p>Date created - <span class="item">{{document.DateCreated}}</span></p>
             <p>Scheduled delivery date - <span class="item">{{document.ScheduledDeliveryDate.split(' ')[0]}}</span></p>

@@ -17,4 +17,25 @@ export class DocumentComponent {
   deleteDocument() {
     this.store.dispatch(new DocumentsActions.DeleteDocument(this.document.Number)); 
   }
+
+  getValueProgress(statusCode: string) {
+    switch (+statusCode) {
+      case 1:
+      case 2:
+      case 3:
+      case 4:
+      case 41:
+        return 0;
+      case 5:
+      case 6:
+      case 104:
+        return 25;
+      case 7:
+      case 8:
+      case 101:
+        return 75;
+      default:
+        return 100;
+    }
+  }
 }

@@ -32,6 +32,7 @@ import { DocumentComponent } from "./components/documents-list/document/document
 import { DocumentsEffects } from "./store/effects/documents.effects";
 import { LoaderService } from './services/loader/loader.service';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { MatProgressBarModule } from '@angular/material/progress-bar'; 
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
     MatGridListModule,
     StoreModule.forRoot(appReducers, {}),
     EffectsModule.forRoot([AuthEffects, DocumentsEffects]),
-    MatDialogModule
+    MatDialogModule,
+    MatProgressBarModule
   ],
   providers: [
     CookieService, 
