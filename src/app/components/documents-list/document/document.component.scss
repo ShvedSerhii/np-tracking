@@ -8,3 +8,12 @@
   display: flex;
   // justify-content: flex-end;
 }
+
+.info{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.item {
+  color: #9C27B0;
+}
