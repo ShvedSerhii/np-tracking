@@ -2,9 +2,9 @@
     <mat-card-title>{{document.Number}}</mat-card-title>
     <mat-card-subtitle>{{document.Status}}</mat-card-subtitle>
 <mat-card-content>
-    <mat-progress-bar mode="determinate" color="accent" [value]="getValueProgress(document.StatusCode)"></mat-progress-bar>
-     
-    <div *ngIf="!(document.StatusCode=='3')" class="info">
+    <mat-progress-bar *ngIf="!isDelete" mode="determinate" color="accent" [value]="getValueProgress(document.StatusCode)"></mat-progress-bar>
+    <mat-progress-bar *ngIf="isDelete" mode="indeterminate" color="warn"></mat-progress-bar> 
+    <div *ngIf="!((document.StatusCode=='3')||(document.StatusCode=='2'))" class="info">
         <div>
             <h3>Sender info</h3>
             <p>Sender city - <span class='item'>{{document.CitySender}}</span></p>

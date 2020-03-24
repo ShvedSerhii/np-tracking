@@ -10,11 +10,12 @@ import * as DocumentsActions from "./../../../store/actions/documents.actions";
   styleUrls: ['./document.component.scss']
 })
 export class DocumentComponent {
-
+  public isDelete = false;
   @Input() document: DocumentStatus;
   constructor(private store: Store<IAppState>) { }
 
   deleteDocument() {
+    this.isDelete = true;
     this.store.dispatch(new DocumentsActions.DeleteDocument(this.document.Number)); 
   }
 
