@@ -6,7 +6,7 @@
             <app-document [document]="document"></app-document>
         </div>
     </div>
-        <div *ngIf="!(documents$|async)[0]" class="empty"> 
+        <div *ngIf="!(documents$|async)[0]&&!loading" class="empty"> 
             <mat-card>
                 <mat-card-content>
                     <h1>You don't have any tracking numbers yet. Don't panic! </h1>
