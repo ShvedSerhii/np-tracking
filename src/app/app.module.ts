@@ -58,10 +58,10 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
     ReactiveFormsModule,
     FormsModule,
     MatGridListModule,
+    MatDialogModule,
+    MatProgressBarModule,
     StoreModule.forRoot(appReducers, {}),
     EffectsModule.forRoot([AuthEffects, DocumentsEffects]),
-    MatDialogModule,
-    MatProgressBarModule
   ],
   providers: [
     CookieService,
