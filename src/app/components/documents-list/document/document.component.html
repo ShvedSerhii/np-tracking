@@ -1,33 +1,40 @@
 <mat-card class="card">
     <mat-card-title>{{document.Number}}</mat-card-title>
     <mat-card-subtitle>{{document.Status}}</mat-card-subtitle>
-<mat-card-content>
-    <mat-progress-bar *ngIf="!isDelete" mode="determinate" color="accent" [value]="getValueProgress(document.StatusCode)"></mat-progress-bar>
-    <mat-progress-bar *ngIf="isDelete" mode="indeterminate" color="warn"></mat-progress-bar> 
-    <div *ngIf="!((document.StatusCode=='3')||(document.StatusCode=='2'))" class="info">
-        <div>
-            <h3>Sender info</h3>
-            <p>Sender city - <span class='item'>{{document.CitySender}}</span></p>
-            <p>Date created - <span class="item">{{document.DateCreated}}</span></p>
-            <h3>Recipient info</h3>
-            <p>Recipient city - <span class="item">{{document.CityRecipient}}</span></p>
-            <p>Recipient address - <span class="item">{{document.WarehouseRecipient||document.RecipientAddress||'*при введені телефону'}}</span></p>
-            <p>Recipient full name	 - <span class="item">{{document.RecipientFullName||'*при введені телефону'}}</span></p>
+    <mat-card-content>
+        <mat-progress-bar mode="determinate" color="accent" [value]="getValueProgress(document.StatusCode)">
+        </mat-progress-bar>
+        <div *ngIf="!((document.StatusCode=='3')||(document.StatusCode=='2'))" class="info">
+            <div>
+                <h3>Sender info</h3>
+                <p>Sender city - <span class='item'>{{document.CitySender}}</span></p>
+                <p>Date created - <span class="item">{{document.DateCreated}}</span></p>
+                <h3>Recipient info</h3>
+                <p>Recipient city - <span class="item">{{document.CityRecipient}}</span></p>
+                <p>Recipient address - <span
+                        class="item">{{document.WarehouseRecipient||document.RecipientAddress||'*при введені телефону'}}</span>
+                </p>
+                <p>Recipient full name - <span
+                        class="item">{{document.RecipientFullName||'*при введені телефону'}}</span></p>
+            </div>
+            <div>
+                <h3>Cargo info</h3>
+                <p>Weight - <span class="item">{{document.DocumentWeight}} кг</span></p>
+                <p>Cargo description - <span
+                        class="item">{{document.CargoDescriptionString||'*при введені телефону'}}</span></p>
+                <p>Shipping cost - <span class="item">{{document.DocumentCost||'доставка безкоштовна'}} <span
+                            *ngIf="document.DocumentCost">грн</span></span></p>
+                <p>Redelivery sum - <span class="item">{{document.RedeliverySum||'зворотньої доставки немає'}} <span
+                            *ngIf="document.RedeliverySum">грн</span></span></p>
+                <p>Scheduled delivery date - <span class="item">{{document.ScheduledDeliveryDate.split(' ')[0]}}</span>
+                </p>
+                <p>Date of receipt - <span class="item">{{document.RecipientDateTime||'не отримано'}}</span></p>
+            </div>
         </div>
-        <div>
-            <h3>Cargo info</h3>
-            <p>Weight - <span class="item">{{document.DocumentWeight}} кг</span></p>
-            <p>Cargo description - <span class="item">{{document.CargoDescriptionString||'*при введені телефону'}}</span></p>
-            <p>Shipping cost - <span class="item">{{document.DocumentCost||'доставка безкоштовна'}} <span *ngIf="document.DocumentCost">грн</span></span></p>
-            <p>Redelivery sum - <span class="item">{{document.RedeliverySum||'зворотньої доставки немає'}} <span *ngIf="document.RedeliverySum">грн</span></span></p>
-            <p>Scheduled delivery date - <span class="item">{{document.ScheduledDeliveryDate.split(' ')[0]}}</span></p>
-            <p>Date of receipt - <span class="item">{{document.RecipientDateTime||'не отримано'}}</span></p>
-        </div>
-    </div>
-</mat-card-content>
+    </mat-card-content>
     <mat-card-actions class="menu-card">
         <div>
-            <button mat-raised-button color="warn" (click)="deleteDocument()">DELETE</button> 
+            <button mat-raised-button color="warn" (click)="deleteDocument()">DELETE</button>
         </div>
-    </mat-card-actions> 
-</mat-card> 
+    </mat-card-actions>
+</mat-card>

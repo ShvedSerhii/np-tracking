@@ -9,7 +9,6 @@ import { DocumentModel } from 'src/app/models/document.model';
   styleUrls: ['./new-document.component.scss']
 })
 export class NewDocumentComponent {
-
   public form: NewDocumentForm;
   constructor(
     public dialogRef: MatDialogRef<NewDocumentComponent>,
@@ -18,9 +17,7 @@ export class NewDocumentComponent {
     this.form = new NewDocumentForm(data);
   }
 
-  cancel(): void { 
+  cancel(): void {
     this.dialogRef.close();
   }
-
-
 }

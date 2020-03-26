@@ -1,4 +1,4 @@
- <div class="wrapper">
+<div class="wrapper">
   <mat-card class="login-container">
     <p class="errMessage" *ngIf="showError && !loading">{{errMessage$|async}}</p>
     <mat-card-title>Registration</mat-card-title>
@@ -27,6 +27,5 @@
       </div>
     </form>
     <mat-spinner *ngIf="loading" class="login-form"></mat-spinner>
-  </mat-card> 
- </div>
- 
+  </mat-card>
+</div>

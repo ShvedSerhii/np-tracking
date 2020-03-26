@@ -31,9 +31,9 @@ export class AuthService {
     const url = `${this.BASE_URL}/api/user/new`;
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'text/plain' 
+        'Content-Type': 'text/plain'
       })
     };
-    return this.http.post<any>(url, payload, httpOptions);  
-  } 
-} 
+    return this.http.post<any>(url, payload, httpOptions);
+  }
+}

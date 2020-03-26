@@ -10,7 +10,7 @@
       </mat-form-field>
       <mat-form-field>
         <mat-label>Phone</mat-label>
-        <input matInput formControlName="phone" placeholder="Ex. 380XXXXXXXXX">  
+        <input matInput formControlName="phone" placeholder="Ex. 380XXXXXXXXX">
         <mat-error *ngIf="form.model.Phone">
           Please enter the correct phone number or leave this field blank
         </mat-error>
@@ -19,6 +19,7 @@
   </div>
   <div mat-dialog-actions>
     <button mat-button (click)="cancel()">No Thanks</button>
-    <button mat-button [mat-dialog-close]="form.model" cdkFocusInitial [disabled]="form.formGroup.invalid">Submit</button>
+    <button mat-button [mat-dialog-close]="form.model" cdkFocusInitial
+      [disabled]="form.formGroup.invalid">Submit</button>
   </div>
 </div>

@@ -5,7 +5,7 @@ export enum DocumentsActionTypes {
   GET_DOCUMENTS = '[document] GET_DOCUMENTS',
   ADD_DOCUMENT = '[document] ADD_DOCUMENT',
   DELETE_DOCUMENT = '[document] DELETE_DOCUMENT',
-  GET_STATUS_DOCUMENT = '[document] GET_STATUS_DOCUMENT',
+  GET_STATUS_DOCUMENT = '[document] GET_STATUS_DOCUMENT'
 }
 
 export class SetDocuments implements Action {
@@ -38,4 +38,3 @@ export type AllDocumentsActions =
   | AddDocument
   | DeleteDocument
   | GetStatusDocument;
-  

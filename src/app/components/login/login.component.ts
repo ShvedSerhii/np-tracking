@@ -6,7 +6,10 @@ import { LogIn } from 'src/app/store/actions/auth.actions';
 import { Store } from '@ngrx/store';
 import { IAppState } from 'src/app/store/state/app.state';
 import { Observable } from 'rxjs';
-import { errMessage, isAuthenticated } from 'src/app/store/selectors/auth.selectors';
+import {
+  errMessage,
+  isAuthenticated
+} from 'src/app/store/selectors/auth.selectors';
 import { LoaderService } from 'src/app/services/loader/loader.service';
 
 @Component({
@@ -21,12 +24,16 @@ export class LoginComponent {
   public errMessage$: Observable<string>;
   public isAuthenticated$: Observable<boolean>;
   public showError = false;
-  constructor(private store: Store<IAppState>, private router: Router, private loaderService: LoaderService) {
+  constructor(
+    private store: Store<IAppState>,
+    private router: Router,
+    private loaderService: LoaderService
+  ) {
     this.model = new User();
     this.form = new LoginForm(this.model);
     this.errMessage$ = store.select(errMessage);
     this.isAuthenticated$ = store.select(isAuthenticated);
-    this.loaderService.isLoading.subscribe((v) => {
+    this.loaderService.isLoading.subscribe(v => {
       this.loading = v;
     });
   }

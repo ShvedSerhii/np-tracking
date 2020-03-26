@@ -1,50 +1,50 @@
-  .wrapper {
-    height: 60%;
+.wrapper {
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  width: 400px;
+  margin: auto;
+  padding: 20px;
+  background-color: #212121;
+
+  .login-form {
+    flex-direction: column;
     display: flex;
-    align-items: center; 
-    justify-content: center;
   }
-  
-  .login-container {
-    width: 400px;
-    margin: auto;
-    padding: 20px;
-    background-color: #212121;
-  
-    .login-form {
-      flex-direction: column;
-      display: flex;
-    }
-  }
+}
 
-  mat-card-title {
-    color: whitesmoke;
-  }
-  
-  .register {
-    margin-left: 18px;
-    text-decoration: none;
-    color: whitesmoke;
-    font-size: 14px;
-  }
-  
-  h1 {
-    color: whitesmoke;
-  }
-  
-  h3 {
-    color: whitesmoke; 
-  }
+mat-card-title {
+  color: whitesmoke;
+}
 
-  .errMessage {
-    color: red;
-  }
+.register {
+  margin-left: 18px;
+  text-decoration: none;
+  color: whitesmoke;
+  font-size: 14px;
+}
 
-  input {
-    color: whitesmoke;
-  }
-  
-  mat-spinner {
-    margin-left: auto;
-    margin-right: auto;
-  }
+h1 {
+  color: whitesmoke;
+}
+
+h3 {
+  color: whitesmoke;
+}
+
+.errMessage {
+  color: red;
+}
+
+input {
+  color: whitesmoke;
+}
+
+mat-spinner {
+  margin-left: auto;
+  margin-right: auto;
+}

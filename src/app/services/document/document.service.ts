@@ -16,18 +16,18 @@ export class DocumentService {
     const url = `${this.BASE_URL}/api/documents`;
     const httpOptions = {
       headers: new HttpHeaders({
-        'Authorization': `Bearer ${this.cookie.getCookie('token')}`,
+        Authorization: `Bearer ${this.cookie.getCookie('token')}`,
         'Content-Type': 'application/json'
       })
     };
     return this.http.post<any>(url, JSON.stringify(payload), httpOptions);
   }
-  
+
   getDocuments(): Observable<any> {
     const url = `${this.BASE_URL}/api/documents`;
     const httpOptions = {
       headers: new HttpHeaders({
-        'Authorization': `Bearer ${this.cookie.getCookie('token')}`
+        Authorization: `Bearer ${this.cookie.getCookie('token')}`
       })
     };
     return this.http.get<any>(url, httpOptions);
@@ -36,13 +36,13 @@ export class DocumentService {
   getStatusDocuments(payload: DocumentModel[]): Observable<any> {
     const url = 'https://api.novaposhta.ua/v2.0/json/';
     const data = {
-      "apiKey": "",
-      "modelName": "TrackingDocument",
-      "calledMethod": "getStatusDocuments",
-      "methodProperties": {
-          "Documents": payload
+      apiKey: '',
+      modelName: 'TrackingDocument',
+      calledMethod: 'getStatusDocuments',
+      methodProperties: {
+        Documents: payload
       }
-  }
+    };
     return this.http.post<any>(url, JSON.stringify(data));
   }
 
@@ -50,7 +50,7 @@ export class DocumentService {
     const url = `${this.BASE_URL}/api/documents/${payload}`;
     const httpOptions = {
       headers: new HttpHeaders({
-        'Authorization': `Bearer ${this.cookie.getCookie('token')}`
+        Authorization: `Bearer ${this.cookie.getCookie('token')}`
       })
     };
     return this.http.delete(url, httpOptions);

@@ -1,4 +1,4 @@
-import { DocumentStatus } from "src/app/models/document.model";
+import { DocumentStatus } from 'src/app/models/document.model';
 
 export interface IDocumentsState {
   documents: Array<DocumentStatus>;

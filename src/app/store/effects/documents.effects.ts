@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { Actions, Effect, ofType } from "@ngrx/effects";
-import { DocumentService } from "src/app/services/document/document.service";
-import { Observable } from "rxjs";
+import { Injectable } from '@angular/core';
+import { Actions, Effect, ofType } from '@ngrx/effects';
+import { DocumentService } from 'src/app/services/document/document.service';
+import { Observable } from 'rxjs';
 import {
   DocumentsActionTypes,
   GetDocuments,
@@ -9,8 +9,8 @@ import {
   AddDocument,
   DeleteDocument,
   GetStatusDocument
-} from "../actions/documents.actions";
-import { map, switchMap } from "rxjs/operators";
+} from '../actions/documents.actions';
+import { map, switchMap } from 'rxjs/operators';
 
 @Injectable()
 export class DocumentsEffects {
@@ -38,9 +38,9 @@ export class DocumentsEffects {
     map((action: GetStatusDocument) => action),
     switchMap(data => {
       return this.documentServices.getStatusDocuments(data.payload.data).pipe(
-        map(data => {
-          return new SetDocuments(data);
-        }) 
+        map(values => {
+          return new SetDocuments(values);
+        })
       );
     })
   );
@@ -65,7 +65,7 @@ export class DocumentsEffects {
     switchMap(payload => {
       return this.documentServices.deleteDocument(payload).pipe(
         map(() => {
-          return new GetDocuments(); 
+          return new GetDocuments();
         })
       );
     })

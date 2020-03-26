@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { DocumentStatus } from 'src/app/models/document.model';
 import { Store } from '@ngrx/store';
 import { IAppState } from 'src/app/store/state/app.state';
-import * as DocumentsActions from "./../../../store/actions/documents.actions";
+import * as DocumentsActions from './../../../store/actions/documents.actions';
 
 @Component({
   selector: 'app-document',
@@ -10,13 +10,13 @@ import * as DocumentsActions from "./../../../store/actions/documents.actions";
   styleUrls: ['./document.component.scss']
 })
 export class DocumentComponent {
-  public isDelete = false;
   @Input() document: DocumentStatus;
-  constructor(private store: Store<IAppState>) { }
+  constructor(private store: Store<IAppState>) {}
 
   deleteDocument() {
-    this.isDelete = true;
-    this.store.dispatch(new DocumentsActions.DeleteDocument(this.document.Number)); 
+    this.store.dispatch(
+      new DocumentsActions.DeleteDocument(this.document.Number)
+    );
   }
 
   getValueProgress(statusCode: string) {

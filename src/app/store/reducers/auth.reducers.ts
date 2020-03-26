@@ -18,7 +18,9 @@ export function authReducer(
       };
     }
     case AuthActionTypes.LOGIN_FAILURE: {
-      const message = action.payload.message ? action.payload.message : 'Unknown error. Check your internet connection.'
+      const message = action.payload.message
+        ? action.payload.message
+        : 'Unknown error. Check your internet connection.';
       return {
         ...state,
         errorMessage: message
@@ -36,7 +38,9 @@ export function authReducer(
       };
     }
     case AuthActionTypes.SIGNUP_FAILURE: {
-      const message = action.payload.message ? action.payload.message : 'Unknown error. Check your internet connection.'
+      const message = action.payload.message
+        ? action.payload.message
+        : 'Unknown error. Check your internet connection.';
       return {
         ...state,
         errorMessage: message

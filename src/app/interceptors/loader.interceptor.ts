@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import {
   HttpErrorResponse,
   HttpResponse,
@@ -6,9 +6,9 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor
-} from "@angular/common/http";
-import { Observable } from "rxjs";
-import { LoaderService } from "../services/loader/loader.service";
+} from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { LoaderService } from '../services/loader/loader.service';
 
 @Injectable()
 export class LoaderInterceptor implements HttpInterceptor {
@@ -39,7 +39,7 @@ export class LoaderInterceptor implements HttpInterceptor {
           }
         },
         err => {
-          alert("error returned");
+          alert('error returned');
           this.removeRequest(req);
           observer.error(err);
         },

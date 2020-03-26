@@ -34,7 +34,7 @@ export class AuthEffects {
     switchMap(payload => {
       return this.authService.logIn(payload).pipe(
         map(data => {
-          if(data.account) {
+          if (data.account) {
             return new LogInSuccess(data);
           } else {
             return new LogInFailure(data);
@@ -46,14 +46,14 @@ export class AuthEffects {
       );
     })
   );
- 
+
   @Effect({ dispatch: false })
   LogInSuccess: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.LOGIN_SUCCESS),
-    tap( data => {
-        this.cookie.setCookie('token', data.payload.account.token);
-        this.cookie.setCookie('email', data.payload.account.email);
-        this.router.navigateByUrl('/');
+    tap(data => {
+      this.cookie.setCookie('token', data.payload.account.token);
+      this.cookie.setCookie('email', data.payload.account.email);
+      this.router.navigateByUrl('/');
     })
   );
 
@@ -69,7 +69,7 @@ export class AuthEffects {
     switchMap(payload => {
       return this.authService.signUp(payload).pipe(
         map(data => {
-          if(data.account) {
+          if (data.account) {
             return new SignUpSuccess(data);
           } else {
             return new SignUpFailure(data);
@@ -86,9 +86,9 @@ export class AuthEffects {
   SignUpSuccess: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.SIGNUP_SUCCESS),
     tap(data => {
-        this.cookie.setCookie('token', data.payload.account.token);
-        this.cookie.setCookie('email', data.payload.account.email);
-        this.router.navigateByUrl('/');
+      this.cookie.setCookie('token', data.payload.account.token);
+      this.cookie.setCookie('email', data.payload.account.email);
+      this.router.navigateByUrl('/');
     })
   );
 
@@ -103,7 +103,7 @@ export class AuthEffects {
     tap(() => {
       this.cookie.deleteCookie('token');
       this.cookie.deleteCookie('email');
-      this.router.navigateByUrl('/login'); 
+      this.router.navigateByUrl('/login');
     })
   );
 }
