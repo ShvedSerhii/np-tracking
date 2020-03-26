@@ -3,17 +3,18 @@ import { CookiesService } from '../cookies/cookies.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { DocumentModel } from 'src/app/models/document.model';
+import { URL as BASE_GO_URL } from '../../constants/goshved-api';
+import { URL as BASE_NP_URL } from '../../constants/np-api'
 
 @Injectable({
   providedIn: 'root'
 })
 export class DocumentService {
-  private BASE_URL = 'https://goshved.herokuapp.com';
 
   constructor(private http: HttpClient, private cookie: CookiesService) {}
 
   addDocument(payload: DocumentModel): Observable<any> {
-    const url = `${this.BASE_URL}/api/documents`;
+    const url = `${BASE_GO_URL}/documents`;
     const httpOptions = {
       headers: new HttpHeaders({
         Authorization: `Bearer ${this.cookie.getCookie('token')}`,
@@ -24,7 +25,7 @@ export class DocumentService {
   }
 
   getDocuments(): Observable<any> {
-    const url = `${this.BASE_URL}/api/documents`;
+    const url = `${BASE_GO_URL}/documents`;
     const httpOptions = {
       headers: new HttpHeaders({
         Authorization: `Bearer ${this.cookie.getCookie('token')}`
@@ -34,7 +35,6 @@ export class DocumentService {
   }
 
   getStatusDocuments(payload: DocumentModel[]): Observable<any> {
-    const url = 'https://api.novaposhta.ua/v2.0/json/';
     const data = {
       apiKey: '',
       modelName: 'TrackingDocument',
@@ -43,11 +43,11 @@ export class DocumentService {
         Documents: payload
       }
     };
-    return this.http.post<any>(url, JSON.stringify(data));
+    return this.http.post<any>(BASE_NP_URL, JSON.stringify(data));
   }
 
   deleteDocument(payload: DocumentModel): Observable<any> {
-    const url = `${this.BASE_URL}/api/documents/${payload}`;
+    const url = `${BASE_GO_URL}/documents/${payload}`;
     const httpOptions = {
       headers: new HttpHeaders({
         Authorization: `Bearer ${this.cookie.getCookie('token')}`
