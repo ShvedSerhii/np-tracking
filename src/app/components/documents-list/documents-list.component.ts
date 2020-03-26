@@ -17,6 +17,7 @@ import { LoaderService } from 'src/app/services/loader/loader.service';
 export class DocumentsListComponent {
   public documents$: Observable<Array<DocumentStatus>>;
   public loading: boolean;
+  public searchText: any;
   constructor(
     private store: Store<IAppState>,
     public dialog: MatDialog,

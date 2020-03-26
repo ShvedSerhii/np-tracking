@@ -9,12 +9,16 @@
   justify-content: center;
 }
 
-.add {
+.menu {
   margin-left: 10px;
   margin-top: 10px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 mat-progress-bar {
   margin-left: 10px;
   margin-top: 10px;
+  margin-right: 10px;
 }

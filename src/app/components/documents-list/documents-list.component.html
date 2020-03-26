@@ -1,9 +1,13 @@
 <div class="wrapper">
-    <div class="add"><button mat-raised-button color="primary" (click)="openDialog()">+ Add New Track Number</button>
+    <div class="menu">
+        <button mat-raised-button color="primary" (click)="openDialog()">+ Add New Track Number</button>
+        <mat-form-field>
+            <input matInput type="text" [(ngModel)]="searchText"  placeholder="Search by Number" />
+        </mat-form-field>
     </div>
     <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
     <div>
-        <div *ngFor="let document of documents$ | async">
+        <div *ngFor="let document of documents$ | async | filter : searchText">
             <app-document [document]="document"></app-document>
         </div>
     </div>

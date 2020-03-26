@@ -34,6 +34,7 @@ import { AuthEffects } from './store/effects/auth.effects';
 import { appReducers } from './store/reducers/app.reducers';
 import { DocumentsEffects } from './store/effects/documents.effects';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { FilterPipe } from './pipes/filter/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
     RegisterComponent,
     DocumentsListComponent,
     DocumentComponent,
-    NewDocumentComponent
+    NewDocumentComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
