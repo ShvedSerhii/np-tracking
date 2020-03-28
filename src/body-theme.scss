@@ -13,4 +13,8 @@
     body {
         background-color: mat-color($background, background); 
     } 
+
+    .mat-dialog-custom .mat-dialog-container {
+        background-color: mat-color($background, app-bar);  
+      }
   }

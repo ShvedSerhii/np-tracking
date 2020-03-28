@@ -4,8 +4,10 @@
 @include mat-core();
 
 @import "./dark-theme.scss";
+
 @import './body-theme.scss'; 
 @import './app/components/documents-list/document/document-theme.scss'; 
+@import './app/components/header/header-theme.scss';
 
 html,
 body {
@@ -15,13 +17,11 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-.mat-dialog-custom .mat-dialog-container {
-  background-color: #212121;
-}
 
 @mixin dark-theme($theme) {
   @include body-theme($theme);
   @include document-theme($theme);
+  @include header-theme($theme);
 }
 
 @include angular-material-theme($dark-theme);
