@@ -1,4 +1,6 @@
-@import '../node_modules/@angular/material/theming';
+@import "../node_modules/@angular/material/theming";  
+@import './body-theme.scss'; 
+
 
 @include mat-core();
 
@@ -7,6 +9,11 @@ $dark-theme-accent: mat-palette($mat-amber, A200, A100, A400);
 $dark-theme-warn: mat-palette($mat-deep-orange);
 $dark-theme-background: mat-palette($mat-grey);
 
-$dark-theme: mat-dark-theme($dark-theme-primary, $dark-theme-accent, $dark-theme-warn); 
+$dark-theme: mat-dark-theme(
+  $dark-theme-primary,
+  $dark-theme-accent,
+  $dark-theme-warn
+);
 
 @include angular-material-theme($dark-theme);
+@include body-theme($dark-theme);  
