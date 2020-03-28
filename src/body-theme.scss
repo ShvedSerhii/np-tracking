@@ -1,15 +1,16 @@
-@import "../node_modules/@angular/material/theming";  
+@import '../node_modules/@angular/material/theming';
+@include mat-core();
 
 
 @mixin body-theme($theme) {
 
     $primary: map-get($theme, primary);
-    $accept: map-get($theme, accept);
+    $accent: map-get($theme, accent);
     $warn: map-get($theme, warn);
     $foreground: map-get($theme, foreground);
     $background: map-get($theme, background);
 
     body {
-        background-color: mat-color($background, card); 
+        background-color: mat-color($background, background); 
     } 
   }

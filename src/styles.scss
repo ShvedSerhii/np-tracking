@@ -1,8 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
-@import './dark-theme.scss';
+@import '../node_modules/@angular/material/theming';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
-.mat-dialog-custom .mat-dialog-container{
-    background-color: #212121;
+@include mat-core();
+
+@import "./dark-theme.scss";
+@import './body-theme.scss'; 
+@import './app/components/documents-list/document/document-theme.scss'; 
+
+html,
+body {
+  height: 100%;
 }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.mat-dialog-custom .mat-dialog-container {
+  background-color: #212121;
+}
+
+@mixin dark-theme($theme) {
+  @include body-theme($theme);
+  @include document-theme($theme);
+}
+
+@include angular-material-theme($dark-theme);
+@include dark-theme($dark-theme);
