@@ -6,8 +6,10 @@
     $primary: map-get($theme, primary);
     $accept: map-get($theme, accept);
     $warn: map-get($theme, warn);
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
 
     body {
-        background-color: mat-color($primary);
+        background-color: mat-color($background, card); 
     } 
   }
