@@ -13,6 +13,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+
+
 
 import { CookieService } from 'ngx-cookie-service';
 import { StoreModule } from '@ngrx/store';
@@ -62,6 +65,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     MatGridListModule,
     MatDialogModule,
     MatProgressBarModule,
+    MatButtonToggleModule,
     StoreModule.forRoot(appReducers, {}),
     EffectsModule.forRoot([AuthEffects, DocumentsEffects]),
   ],

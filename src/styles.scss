@@ -29,12 +29,10 @@ body {
   @include light-theme($light-theme);
 }
 
-html {
-  @mixin dark-theme($theme) {
-    @include body-theme($theme);
-    @include document-theme($theme);
-    @include header-theme($theme);
-  }
-  @include angular-material-theme($dark-theme);
-  @include dark-theme($dark-theme);
+@mixin dark-theme($theme) {
+  @include body-theme($theme);
+  @include document-theme($theme);
+  @include header-theme($theme);
 }
+@include angular-material-theme($dark-theme);
+@include dark-theme($dark-theme); 

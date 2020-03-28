@@ -15,4 +15,12 @@ export class HeaderComponent {
   logout() {
     this.store.dispatch(new LogOut());
   }
+
+  setLightTheme() {
+    document.querySelector('html').className = 'light-theme'; 
+  }
+
+  setDarkTheme() {
+    document.querySelector('html').className = ''; 
+  }
 }
