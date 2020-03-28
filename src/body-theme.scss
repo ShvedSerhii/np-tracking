@@ -1,20 +1,18 @@
-@import '../node_modules/@angular/material/theming';
+@import "../node_modules/@angular/material/theming";
 @include mat-core();
 
-
 @mixin body-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
 
-    $primary: map-get($theme, primary);
-    $accent: map-get($theme, accent);
-    $warn: map-get($theme, warn);
-    $foreground: map-get($theme, foreground);
-    $background: map-get($theme, background);
-
-    body {
-        background-color: mat-color($background, background); 
-    } 
-
-    .mat-dialog-custom .mat-dialog-container {
-        background-color: mat-color($background, app-bar);  
-      }
+  body {
+    background-color: mat-color($background, background);
   }
+
+  .mat-dialog-custom .mat-dialog-container {
+    background-color: mat-color($background, app-bar);
+  }
+}

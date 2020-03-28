@@ -1,13 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
-@import '../node_modules/@angular/material/theming';
+@import "../node_modules/@angular/material/theming";
 
 @include mat-core();
 
 @import "./dark-theme.scss";
+@import "./light-theme.scss";
 
-@import './body-theme.scss'; 
-@import './app/components/documents-list/document/document-theme.scss'; 
-@import './app/components/header/header-theme.scss';
+@import "./body-theme.scss";
+@import "./app/components/documents-list/document/document-theme.scss";
+@import "./app/components/header/header-theme.scss";
 
 html,
 body {
@@ -18,11 +19,22 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-@mixin dark-theme($theme) {
-  @include body-theme($theme);
-  @include document-theme($theme);
-  @include header-theme($theme);
+.light-theme {
+  @mixin light-theme($theme) {
+    @include body-theme($theme);
+    @include document-theme($theme);
+    @include header-theme($theme);
+  }
+  @include angular-material-theme($light-theme);
+  @include light-theme($light-theme);
 }
 
-@include angular-material-theme($dark-theme);
-@include dark-theme($dark-theme);
+html {
+  @mixin dark-theme($theme) {
+    @include body-theme($theme);
+    @include document-theme($theme);
+    @include header-theme($theme);
+  }
+  @include angular-material-theme($dark-theme);
+  @include dark-theme($dark-theme);
+}

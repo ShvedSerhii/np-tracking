@@ -9,6 +9,10 @@
   $background: map-get($theme, background);
 
   header {
-    background-color: mat-color($background, app-bar);
+    background-color: mat-color($background, status-bar);
+  }
+
+  .title {
+      color: mat-color($primary);
   }
 }
