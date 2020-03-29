@@ -9,6 +9,8 @@
 @import "./body-theme.scss";
 @import "./app/components/documents-list/document/document-theme.scss";
 @import "./app/components/header/header-theme.scss";
+@import "./app/components/login/login-theme.scss";
+@import "./app/components/register/register-theme.scss";
 
 html,
 body {
@@ -24,6 +26,8 @@ body {
     @include body-theme($theme);
     @include document-theme($theme);
     @include header-theme($theme);
+    @include login-theme($theme);
+    @include register-theme($theme);
   }
   @include angular-material-theme($light-theme);
   @include light-theme($light-theme);
@@ -33,6 +37,8 @@ body {
   @include body-theme($theme);
   @include document-theme($theme);
   @include header-theme($theme);
+  @include login-theme($theme);
+  @include register-theme($theme);
 }
 @include angular-material-theme($dark-theme);
 @include dark-theme($dark-theme); 

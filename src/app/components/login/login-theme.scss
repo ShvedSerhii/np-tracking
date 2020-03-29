@@ -1,0 +1,18 @@
+@import "../../../../node_modules/@angular/material/theming";
+@include mat-core();
+
+@mixin login-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+
+  .register {
+    color: mat-color($foreground, text);
+  }
+
+  .errMessage {
+    color: mat-color($warn);
+  }
+}

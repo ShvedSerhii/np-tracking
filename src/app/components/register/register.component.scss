@@ -9,7 +9,6 @@
   width: 400px;
   margin: auto;
   padding: 20px;
-  background-color: #212121;
 
   .login-form {
     flex-direction: column;
@@ -17,23 +16,10 @@
   }
 }
 
-mat-card-title {
-  color: whitesmoke;
-}
-
 .cancel {
   margin-left: 18px;
   text-decoration: none;
-  color: whitesmoke;
   font-size: 14px;
-}
-
-h1 {
-  color: whitesmoke;
-}
-
-.errMessage {
-  color: red;
 }
 
 mat-spinner {
