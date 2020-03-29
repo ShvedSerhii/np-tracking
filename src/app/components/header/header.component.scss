@@ -3,6 +3,9 @@
   height: 8vh;
   align-items: center;
   justify-content: space-around;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
 }
 
 .wrapper div {
