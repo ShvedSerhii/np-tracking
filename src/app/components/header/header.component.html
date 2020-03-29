@@ -4,8 +4,8 @@
     </div>
     <div class="logout">
         <mat-button-toggle-group name="theme" aria-label="Font Style">
-            <mat-button-toggle (click)="setDarkTheme()">Dark</mat-button-toggle>
-            <mat-button-toggle (click)="setLightTheme()">Light</mat-button-toggle> 
+            <mat-button-toggle (click)="theme.setDarkTheme()">Dark</mat-button-toggle>
+            <mat-button-toggle (click)="theme.setLightTheme()">Light</mat-button-toggle> 
         </mat-button-toggle-group>
         <button *ngIf="auth.getToken()" class="logout" mat-raised-button color="primary" (click)="logout()">Logout,
             {{auth.getEmail()}}</button>
