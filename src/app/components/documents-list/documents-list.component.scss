@@ -18,7 +18,12 @@
 }
 
 mat-progress-bar {
+  max-width: 880px;
   margin-left: 10px;
   margin-top: 10px;
   margin-right: 10px;
+}
+
+.empty {
+  margin: 10px;
 }

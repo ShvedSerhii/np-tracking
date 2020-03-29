@@ -1,18 +1,18 @@
 <div class="wrapper">
-    <div class="menu">
+    <mat-card class="menu">
         <button mat-raised-button color="primary" (click)="openDialog()">+ Add New Track Number</button>
         <mat-form-field>
             <input matInput type="text" [(ngModel)]="searchText"  placeholder="Search by Number" />
         </mat-form-field>
-    </div>
+    </mat-card>
     <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
     <div>
         <div *ngFor="let document of documents$ | async | filter : searchText">
             <app-document [document]="document"></app-document>
         </div>
     </div>
-    <div *ngIf="!(documents$|async)[0]&&!loading" class="empty">
-        <mat-card>
+    <div *ngIf="!(documents$|async)[0]&&!loading">
+        <mat-card class="empty">
             <mat-card-content>
                 <h1>You don't have any tracking numbers yet. Don't panic! </h1>
                 <h1>You can add your first tracking number here.</h1>
