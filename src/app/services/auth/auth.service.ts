@@ -2,7 +2,7 @@ import { CookiesService } from 'src/app/services/cookies/cookies.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { URL as BASE_URL } from '../../constants/goshved-api'
+import { URL as BASE_URL } from '../../constants/goshved-api';
 
 @Injectable()
 export class AuthService {

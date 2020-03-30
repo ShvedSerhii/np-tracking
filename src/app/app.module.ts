@@ -35,7 +35,7 @@ import { AuthEffects } from './store/effects/auth.effects';
 import { appReducers } from './store/reducers/app.reducers';
 import { DocumentsEffects } from './store/effects/documents.effects';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
-import { FilterPipe } from './pipes/filter.pipe'; 
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [

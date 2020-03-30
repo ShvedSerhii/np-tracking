@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { DocumentModel } from 'src/app/models/document.model';
 import { URL as BASE_GO_URL } from '../../constants/goshved-api';
-import { URL as BASE_NP_URL } from '../../constants/np-api'
+import { URL as BASE_NP_URL } from '../../constants/np-api';
 
 @Injectable({
   providedIn: 'root'
