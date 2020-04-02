@@ -18,7 +18,7 @@
     </form>
   </div>
   <div mat-dialog-actions>
-    <button mat-button (click)="cancel()">No Thanks</button>
+    <button class="cancel" mat-button (click)="cancel()">No Thanks</button>
     <button mat-button [mat-dialog-close]="form.model" cdkFocusInitial
       [disabled]="form.formGroup.invalid">Submit</button>
   </div>

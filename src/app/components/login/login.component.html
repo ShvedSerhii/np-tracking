@@ -2,7 +2,7 @@
   <mat-card class="login-container">
     <p class="errMessage" *ngIf="showError && !loading">{{errMessage$|async}}</p>
     <mat-card-title>Login</mat-card-title>
-    <form *ngIf="!loading" class="login-form" [formGroup]="form.formGroup" (ngSubmit)="onSubmit(form.formGroup)">
+    <form *ngIf="!loading" class="login-form" [formGroup]="form.formGroup" (ngSubmit)="login(form.formGroup)">
       <mat-form-field>
         <input matInput placeholder="Email" formControlName="email">
         <mat-error *ngIf="form.model.email">

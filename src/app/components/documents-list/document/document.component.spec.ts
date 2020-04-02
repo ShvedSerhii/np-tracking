@@ -2,10 +2,12 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Store } from '@ngrx/store';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { DocumentComponent } from './document.component';
+import { By } from '@angular/platform-browser';
 
 describe('DocumentComponent', () => {
   let component: DocumentComponent;
   let fixture: ComponentFixture<DocumentComponent>;
+  let el: HTMLElement;
 
   const storeStub = { 
     select: () => { }
@@ -31,5 +33,14 @@ describe('DocumentComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  
+  it('should call deleteDocument method', () => {
+    fixture.detectChanges();
+    spyOn<any>(component, 'deleteDocument');
+    el = fixture.debugElement.query(By.css('button')).nativeElement;
+    el.click();
+    expect(component.deleteDocument).toHaveBeenCalledTimes(1);
   });
 });

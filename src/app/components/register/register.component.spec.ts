@@ -2,10 +2,12 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { RegisterComponent } from './register.component';
+import { By } from '@angular/platform-browser';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
   let fixture: ComponentFixture<RegisterComponent>;
+  let el: HTMLElement;
 
   const storeStub = { 
     select: () => { }
@@ -31,5 +33,13 @@ describe('RegisterComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should call registration method', () => {
+    fixture.detectChanges();
+    spyOn<any>(component, 'registration');
+    el = fixture.debugElement.query(By.css('button')).nativeElement;
+    el.click();
+    expect(component.registration).toHaveBeenCalledTimes(0);
   });
 });

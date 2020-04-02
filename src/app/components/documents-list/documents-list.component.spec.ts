@@ -6,10 +6,12 @@ import { DocumentsListComponent } from './documents-list.component';
 import { Pipe, PipeTransform } from '@angular/core';
 import { Observable, Subscriber } from 'rxjs';
 import { DocumentStatus } from 'src/app/models/document.model';
+import { By } from '@angular/platform-browser';
 
 describe('DocumentsListComponent', () => {
   let component: DocumentsListComponent;
   let fixture: ComponentFixture<DocumentsListComponent>;
+  let el: HTMLElement;
 
   const storeStub = { 
     select: () => { },
@@ -49,4 +51,12 @@ describe('DocumentsListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call openDialog method', () => {
+    fixture.detectChanges();
+    spyOn<any>(component, 'openDialog');
+    el = fixture.debugElement.query(By.css('button')).nativeElement;
+    el.click();
+    expect(component.openDialog).toHaveBeenCalledTimes(1);
+  }); 
 });

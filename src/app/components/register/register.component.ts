@@ -38,7 +38,7 @@ export class RegisterComponent {
     });
   }
 
-  public onSubmit(form): void {
+  public registration(form): void {
     this.showError = true;
     this.store.dispatch(new SignUp(form.value));
   }

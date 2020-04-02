@@ -2,11 +2,13 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { LoginComponent } from './login.component';
+import { By } from '@angular/platform-browser';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
-
+  let el: HTMLElement;
+  
   const storeStub = { 
     select: () => { }
   };
@@ -32,4 +34,12 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy(); 
   });
+
+  it('should call login method', () => {
+    fixture.detectChanges();
+    spyOn<any>(component, 'login');
+    el = fixture.debugElement.query(By.css('button')).nativeElement;
+    el.click();
+    expect(component.login).toHaveBeenCalledTimes(0);
+  }); 
 });
