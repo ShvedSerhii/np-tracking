@@ -9,7 +9,7 @@ describe('DocumentComponent', () => {
   let fixture: ComponentFixture<DocumentComponent>;
   let el: HTMLElement;
 
-  const storeStub = { 
+  const storeStub = {
     select: () => { }
   };
 
@@ -18,8 +18,8 @@ describe('DocumentComponent', () => {
       declarations: [ DocumentComponent ],
       providers: [
         { provide: Store, useValue: storeStub },
-      ],  
-      schemas: [NO_ERRORS_SCHEMA] 
+      ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));
@@ -27,7 +27,7 @@ describe('DocumentComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(DocumentComponent);
     component = fixture.componentInstance;
-    component.document = {Number: '', ScheduledDeliveryDate: ''}
+    component.document = {Number: '', ScheduledDeliveryDate: ''};
     fixture.detectChanges();
   });
 
@@ -35,7 +35,7 @@ describe('DocumentComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  
+
   it('should call deleteDocument method', () => {
     fixture.detectChanges();
     spyOn<any>(component, 'deleteDocument');

@@ -19,7 +19,7 @@ describe('NewDocumentComponent', () => {
       providers: [
         { provide: MatDialogRef, useValue: dialogRefStub },
         { provide: MAT_DIALOG_DATA, useValue: matDialogDataStub }
-      ],  
+      ],
     })
     .compileComponents();
   }));

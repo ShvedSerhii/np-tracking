@@ -10,7 +10,7 @@ describe('AuthService', () => {
     TestBed.configureTestingModule({
       providers: [
         { provide: AuthService, useValue: authServiceStub },
-      ],  
+      ],
     });
     service = TestBed.inject(AuthService);
   });

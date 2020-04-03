@@ -38,7 +38,7 @@ export class LoginComponent {
     });
   }
 
-  public login(form): void { 
+  public login(form): void {
     this.showError = true;
     this.store.dispatch(new LogIn(form.value));
   }

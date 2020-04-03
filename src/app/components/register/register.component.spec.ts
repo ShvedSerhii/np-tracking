@@ -9,7 +9,7 @@ describe('RegisterComponent', () => {
   let fixture: ComponentFixture<RegisterComponent>;
   let el: HTMLElement;
 
-  const storeStub = { 
+  const storeStub = {
     select: () => { }
   };
   const routerStub = { };
@@ -19,8 +19,8 @@ describe('RegisterComponent', () => {
       declarations: [ RegisterComponent ],
       providers: [
         { provide: Store, useValue: storeStub },
-        { provide: Router, useValue: routerStub }, 
-      ],  
+        { provide: Router, useValue: routerStub },
+      ],
     })
     .compileComponents();
   }));

@@ -13,7 +13,7 @@ describe('DocumentsListComponent', () => {
   let fixture: ComponentFixture<DocumentsListComponent>;
   let el: HTMLElement;
 
-  const storeStub = { 
+  const storeStub = {
     select: () => { },
     dispatch: () => { }
   };
@@ -33,9 +33,9 @@ describe('DocumentsListComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ DocumentsListComponent, FilterMockPipe ],
       providers: [
-        { provide: MatDialog, useValue: matDialogStub }, 
+        { provide: MatDialog, useValue: matDialogStub },
         { provide: Store, useValue: storeStub },
-      ],  
+      ],
       schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
@@ -44,7 +44,7 @@ describe('DocumentsListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(DocumentsListComponent);
     component = fixture.componentInstance;
-    component.documents$ = new Observable<DocumentStatus[]>(subscriber => {subscriber.next([])}); 
+    component.documents$ = new Observable<DocumentStatus[]>(subscriber => {subscriber.next([]); });
     fixture.detectChanges();
   });
 
@@ -58,5 +58,6 @@ describe('DocumentsListComponent', () => {
     el = fixture.debugElement.query(By.css('button')).nativeElement;
     el.click();
     expect(component.openDialog).toHaveBeenCalledTimes(1);
-  }); 
+  });
+
 });

@@ -8,8 +8,8 @@ describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
   let el: HTMLElement;
-  
-  const storeStub = { 
+
+  const storeStub = {
     select: () => { }
   };
   const routerStub = { };
@@ -19,8 +19,8 @@ describe('LoginComponent', () => {
       declarations: [ LoginComponent ],
       providers: [
         { provide: Store, useValue: storeStub },
-        { provide: Router, useValue: routerStub }, 
-      ],  
+        { provide: Router, useValue: routerStub },
+      ],
     })
     .compileComponents();
   }));
@@ -32,7 +32,7 @@ describe('LoginComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy(); 
+    expect(component).toBeTruthy();
   });
 
   it('should call login method', () => {
@@ -41,5 +41,5 @@ describe('LoginComponent', () => {
     el = fixture.debugElement.query(By.css('button')).nativeElement;
     el.click();
     expect(component.login).toHaveBeenCalledTimes(0);
-  }); 
+  });
 });

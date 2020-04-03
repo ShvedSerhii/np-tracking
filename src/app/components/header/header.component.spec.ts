@@ -9,11 +9,11 @@ describe('HeaderComponent', () => {
   let fixture: ComponentFixture<HeaderComponent>;
   let el: HTMLElement;
 
-  const storeStub = { 
+  const storeStub = {
     select: () => { }
   };
   const authServiceStub = {
-    getToken: () => { } 
+    getToken: () => { }
   };
 
   beforeEach(async(() => {
@@ -22,7 +22,7 @@ describe('HeaderComponent', () => {
       providers: [
         { provide: Store, useValue: storeStub },
         { provide: AuthService, useValue: authServiceStub },
-      ],  
+      ],
     })
     .compileComponents();
   }));
@@ -36,12 +36,12 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  
+
   it('should call logout method', () => {
     fixture.detectChanges();
     spyOn<any>(component, 'logout');
     el = fixture.debugElement.query(By.css('.logout')).nativeElement;
     el.click();
-    expect(component.logout).toHaveBeenCalledTimes(0); 
+    expect(component.logout).toHaveBeenCalledTimes(0);
   });
 });
