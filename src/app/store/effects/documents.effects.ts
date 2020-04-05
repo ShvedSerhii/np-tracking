@@ -46,7 +46,7 @@ export class DocumentsEffects {
   );
 
   @Effect()
-  AddTodo: Observable<any> = this.actions.pipe(
+  AddDocument: Observable<any> = this.actions.pipe(
     ofType(DocumentsActionTypes.ADD_DOCUMENT),
     map((action: AddDocument) => action.payload),
     switchMap(payload => {
@@ -59,7 +59,7 @@ export class DocumentsEffects {
   );
 
   @Effect()
-  DeleteTodo: Observable<any> = this.actions.pipe(
+  DeleteDocument: Observable<any> = this.actions.pipe(
     ofType(DocumentsActionTypes.DELETE_DOCUMENT),
     map((action: DeleteDocument) => action.payload),
     switchMap(payload => {
