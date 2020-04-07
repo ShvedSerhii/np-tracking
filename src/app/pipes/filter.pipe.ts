@@ -8,7 +8,6 @@ export class FilterPipe implements PipeTransform {
     if (!searchText) {
       return documents;
     }
-    return documents.filter( document => document.Number.toLowerCase().indexOf(searchText.toLowerCase()) > -1
-    );
+    return documents.filter(document => document.Number.toLowerCase().indexOf(searchText.toLowerCase()) > -1);
   }
 }
