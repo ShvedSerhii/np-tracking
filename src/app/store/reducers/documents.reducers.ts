@@ -1,11 +1,5 @@
-import {
-  initialDocumentsState,
-  IDocumentsState
-} from '../state/documents.state';
-import {
-  AllDocumentsActions,
-  DocumentsActionTypes
-} from '../actions/documents.actions';
+import { initialDocumentsState, IDocumentsState } from '../state/documents.state';
+import { AllDocumentsActions, DocumentsActionTypes } from '../actions/documents.actions';
 
 export function documentsReducer(
   oldState = initialDocumentsState,

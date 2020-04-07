@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { DocumentService } from 'src/app/services/document/document.service';
 import { Observable } from 'rxjs';
 import {
   DocumentsActionTypes,
@@ -11,6 +10,7 @@ import {
   GetStatusDocument
 } from '../actions/documents.actions';
 import { map, switchMap } from 'rxjs/operators';
+import { DocumentService } from 'src/app/services/document/document.service';
 
 @Injectable()
 export class DocumentsEffects {

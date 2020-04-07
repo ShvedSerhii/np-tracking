@@ -1,5 +1,4 @@
 import { ActionReducerMap } from '@ngrx/store';
-
 import { IAppState } from '../state/app.state';
 import { authReducer } from './auth.reducers';
 import { documentsReducer } from './documents.reducers';

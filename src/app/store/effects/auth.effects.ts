@@ -1,11 +1,8 @@
-import { CookiesService } from './../../services/cookies/cookies.service';
 import { Injectable } from '@angular/core';
-import { Action } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Observable, of } from 'rxjs';
 import { tap, map, switchMap, catchError } from 'rxjs/operators';
-
 import {
   AuthActionTypes,
   LogIn,
@@ -13,10 +10,11 @@ import {
   LogInFailure,
   SignUp,
   SignUpSuccess,
-  SignUpFailure,
-  LogOut
+  SignUpFailure
 } from '../actions/auth.actions';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { CookiesService } from './../../services/cookies/cookies.service';
+
 
 @Injectable()
 export class AuthEffects {
