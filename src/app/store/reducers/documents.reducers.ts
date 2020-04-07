@@ -10,7 +10,7 @@ export function documentsReducer(
       return {
         ...state,
         documents: new Array(...action.payload.data).reverse()
-      }
+      };
     }
     default: {
       return state;
