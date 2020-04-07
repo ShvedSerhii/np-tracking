@@ -33,7 +33,7 @@ export default class LoginForm {
       })
     });
 
-    this.formGroup.valueChanges.subscribe((data: any) => {
+    this.formGroup.valueChanges.subscribe((data: User) => {
       this.model.email = data.email;
       this.model.password = data.password;
     });

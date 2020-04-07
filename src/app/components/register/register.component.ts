@@ -1,16 +1,12 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { SignUp } from 'src/app/store/actions/auth.actions';
+import { IAppState } from 'src/app/store/state/app.state';
+import { errMessage, isAuthenticated } from 'src/app/store/selectors/auth.selectors';
+import { LoaderService } from 'src/app/services/loader/loader.service';
 import { User } from '../../models/user.model';
 import RegisterForm from './register.form';
-import { Router } from '@angular/router';
-import { SignUp } from 'src/app/store/actions/auth.actions';
-import { Store } from '@ngrx/store';
-import { IAppState } from 'src/app/store/state/app.state';
-import { Observable } from 'rxjs';
-import {
-  errMessage,
-  isAuthenticated
-} from 'src/app/store/selectors/auth.selectors';
-import { LoaderService } from 'src/app/services/loader/loader.service';
 
 @Component({
   selector: 'app-register',
@@ -25,7 +21,6 @@ export class RegisterComponent {
   public errMessage$: Observable<string>;
   public isAuthenticated$: Observable<boolean>;
   constructor(
-    private router: Router,
     private store: Store<IAppState>,
     private loaderService: LoaderService
   ) {
@@ -33,8 +28,8 @@ export class RegisterComponent {
     this.form = new RegisterForm(this.model);
     this.errMessage$ = store.select(errMessage);
     this.isAuthenticated$ = store.select(isAuthenticated);
-    this.loaderService.isLoading.subscribe(v => {
-      this.loading = v;
+    this.loaderService.isLoading.subscribe(value => {
+      this.loading = value;
     });
   }
 

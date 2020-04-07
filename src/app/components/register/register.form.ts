@@ -18,7 +18,7 @@ export default class RegisterForm {
     this.createForm();
   }
 
-  public createForm() {
+  public createForm(): void {
     this.formGroup = this.formBuilder.group(
       {
         email: new FormControl(this.model.email, {
@@ -40,7 +40,7 @@ export default class RegisterForm {
       }
     );
 
-    this.formGroup.valueChanges.subscribe((data: any) => {
+    this.formGroup.valueChanges.subscribe((data: User) => {
       this.model.email = data.email;
       this.model.password = data.password;
     });
