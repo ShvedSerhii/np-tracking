@@ -17,7 +17,7 @@ export default class LoginForm {
     this.createForm();
   }
 
-  public createForm() {
+  public createForm(): void {
     this.formGroup = this.formBuilder.group({
       email: new FormControl(this.model.email, {
         validators: [Validators.required, Validators.pattern(/\S+@\S+\.\S+/)],
