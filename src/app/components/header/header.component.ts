@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { IAppState } from 'src/app/store/state/app.state';
-import { AuthService } from 'src/app/services/auth/auth.service';
 import { ThemeService } from 'src/app/services/theme/theme.service';
 import { LogOut } from './../../store/actions/auth.actions';
+import { CookiesService } from 'src/app/services/cookies/cookies.service';
 
 @Component({
   selector: 'app-header',
@@ -13,8 +13,8 @@ import { LogOut } from './../../store/actions/auth.actions';
 export class HeaderComponent {
   constructor(
     private store: Store<IAppState>,
-    public auth: AuthService,
-    public theme: ThemeService
+    public theme: ThemeService,
+    public cookie: CookiesService
   ) {}
 
   public logout(): void {

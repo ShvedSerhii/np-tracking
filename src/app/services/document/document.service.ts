@@ -13,7 +13,7 @@ export class DocumentService {
 
   constructor(private http: HttpClient, private cookie: CookiesService) {}
 
-  addDocument(payload: DocumentModel): Observable<any> {
+  public addDocument(payload: DocumentModel): Observable<any> {
     const url = `${BASE_GO_URL}/documents`;
     const httpOptions = {
       headers: new HttpHeaders({
@@ -24,7 +24,7 @@ export class DocumentService {
     return this.http.post<any>(url, JSON.stringify(payload), httpOptions);
   }
 
-  getDocuments(): Observable<any> {
+  public getDocuments(): Observable<any> {
     const url = `${BASE_GO_URL}/documents`;
     const httpOptions = {
       headers: new HttpHeaders({
@@ -34,7 +34,7 @@ export class DocumentService {
     return this.http.get<any>(url, httpOptions);
   }
 
-  getStatusDocuments(payload: DocumentModel[]): Observable<any> {
+  public getStatusDocuments(payload: DocumentModel[]): Observable<any> {
     const data = {
       apiKey: '',
       modelName: 'TrackingDocument',
@@ -46,7 +46,7 @@ export class DocumentService {
     return this.http.post<any>(BASE_NP_URL, JSON.stringify(data));
   }
 
-  deleteDocument(payload: DocumentModel): Observable<any> {
+  public deleteDocument(payload: DocumentModel): Observable<any> {
     const url = `${BASE_GO_URL}/documents/${payload}`;
     const httpOptions = {
       headers: new HttpHeaders({

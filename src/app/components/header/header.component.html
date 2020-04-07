@@ -7,7 +7,7 @@
             <mat-button-toggle (click)="theme.setDarkTheme()">Dark</mat-button-toggle>
             <mat-button-toggle (click)="theme.setLightTheme()">Light</mat-button-toggle> 
         </mat-button-toggle-group>
-        <button *ngIf="auth.getToken()" class="logout" mat-raised-button color="primary" (click)="logout()">Logout,
-            {{auth.getEmail()}}</button>
+        <button *ngIf="cookie.getCookie('token')" class="logout" mat-raised-button color="primary" (click)="logout()">Logout,
+            {{cookie.getCookie('email')}}</button>
     </div>
 </header>

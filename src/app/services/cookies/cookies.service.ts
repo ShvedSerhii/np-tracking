@@ -23,8 +23,4 @@ export class CookiesService {
   public deleteCookie(key: string): void {
     this.cookieService.delete(key);
   }
-
-  public isAuthorization(): boolean {
-    return this.getCookie('token') ? true : false;
-  }
 }

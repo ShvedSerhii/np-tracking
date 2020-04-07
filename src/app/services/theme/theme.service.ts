@@ -12,12 +12,12 @@ export class ThemeService {
     }
   }
 
-  setLightTheme() {
+  public setLightTheme(): void {
     this.cookie.setCookie('theme', 'light-theme');
     document.querySelector('html').className = 'light-theme';
   }
 
-  setDarkTheme() {
+  public setDarkTheme(): void {
     this.cookie.deleteCookie('theme');
     document.querySelector('html').className = '';
   }
