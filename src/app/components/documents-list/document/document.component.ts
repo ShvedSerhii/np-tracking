@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { DocumentStatus } from 'src/app/models/document.model';
 import { Store } from '@ngrx/store';
+import { DocumentStatus } from 'src/app/models/document.model';
 import { IAppState } from 'src/app/store/state/app.state';
 import * as DocumentsActions from './../../../store/actions/documents.actions';
 
@@ -13,13 +13,13 @@ export class DocumentComponent {
   @Input() document: DocumentStatus;
   constructor(private store: Store<IAppState>) {}
 
-  deleteDocument() {
+  public deleteDocument(): void {
     this.store.dispatch(
       new DocumentsActions.DeleteDocument(this.document.Number)
     );
   }
 
-  getValueProgress(statusCode: string) {
+  public getValueProgress(statusCode: string): number {
     switch (+statusCode) {
       case 2:
       case 3:

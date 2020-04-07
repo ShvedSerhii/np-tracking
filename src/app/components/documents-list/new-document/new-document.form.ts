@@ -17,7 +17,7 @@ export default class NewDocumentForm {
     this.createForm();
   }
 
-  public createForm() {
+  public createForm(): void {
     this.formGroup = this.formBuilder.group({
       number: new FormControl(this.model.DocumentNumber, {
         validators: [

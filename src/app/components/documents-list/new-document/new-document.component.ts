@@ -17,7 +17,7 @@ export class NewDocumentComponent {
     this.form = new NewDocumentForm(data);
   }
 
-  cancel(): void {
+  public cancel(): void {
     this.dialogRef.close();
   }
 }
